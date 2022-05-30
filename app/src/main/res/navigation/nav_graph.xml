@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/categoriesFragment">
+
+    <fragment
+        android:id="@+id/categoriesFragment"
+        android:name="com.muratozturk.kotlinmvvmproject.views.category.CategoriesFragment"
+        android:label="fragment_categories"
+        tools:layout="@layout/fragment_categories" >
+        <action
+            android:id="@+id/action_categoriesFragment_to_productsFragment"
+            app:destination="@id/productsFragment"
+            app:enterAnim="@anim/slide_top" />
+    </fragment>
+    <fragment
+        android:id="@+id/productsFragment"
+        android:name="com.muratozturk.kotlinmvvmproject.views.product.ProductsFragment"
+        android:label="fragment_products"
+        tools:layout="@layout/fragment_products" >
+        <argument
+            android:name="category"
+            app:argType="com.muratozturk.kotlinmvvmproject.models.Categories" />
+    </fragment>
+</navigation>
