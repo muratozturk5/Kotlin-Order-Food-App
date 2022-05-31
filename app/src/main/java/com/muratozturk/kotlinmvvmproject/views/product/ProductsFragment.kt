@@ -31,11 +31,15 @@ class ProductsFragment : Fragment(R.layout.fragment_products) {
         setHasOptionsMenu(true)
         (activity as AppCompatActivity?)!!.supportActionBar!!.title = category.name
         (activity as AppCompatActivity?)!!.supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-
+        binding.shimmerLayout.startShimmer()
         viewModel.productList.observe(viewLifecycleOwner) { products ->
             val productsAdapter = ProductsAdapter(products as ArrayList<Product>)
             binding.productsRecyclerView.adapter = productsAdapter
-
+            binding.shimmerLayout.apply {
+                stopShimmer()
+                visibility = View.GONE
+            }
+            binding.productsRecyclerView.visibility = View.VISIBLE
         }
         binding.productsRecyclerView.layoutManager = GridLayoutManager(context, 2)
         binding.productsRecyclerView.setHasFixedSize(true)

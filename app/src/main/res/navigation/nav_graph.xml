@@ -12,8 +12,7 @@
         tools:layout="@layout/fragment_categories" >
         <action
             android:id="@+id/action_categoriesFragment_to_productsFragment"
-            app:destination="@id/productsFragment"
-            app:enterAnim="@anim/slide_top" />
+            app:destination="@id/productsFragment" />
     </fragment>
     <fragment
         android:id="@+id/productsFragment"

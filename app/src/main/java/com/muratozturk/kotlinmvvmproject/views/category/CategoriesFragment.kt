@@ -1,6 +1,7 @@
 package com.muratozturk.kotlinmvvmproject.views.category
 
 import android.annotation.SuppressLint
+import android.opengl.Visibility
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
@@ -31,12 +32,17 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
             resources.getString(R.string.products)
         (activity as AppCompatActivity?)!!.supportActionBar!!.setDisplayHomeAsUpEnabled(false)
 
-        binding.shimmerLayout.startShimmerAnimation()
+        binding.shimmerLayout.startShimmer()
 
         viewModel.categoryList.observe(viewLifecycleOwner) { categories ->
             val productAdapter = CategoriesAdapter(categories as ArrayList<Categories>)
             binding.categoriesRecyclerView.adapter = productAdapter
             productAdapter.onClick = ::clickCategory
+            binding.shimmerLayout.apply {
+                stopShimmer()
+                visibility = View.GONE
+            }
+            binding.categoriesRecyclerView.visibility = View.VISIBLE
 
         }
         binding.categoriesRecyclerView.layoutManager = GridLayoutManager(context, 2)

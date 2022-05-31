@@ -65,7 +65,7 @@ dependencies {
     // One Line ViewBinding
     implementation 'com.github.Zhuinden:fragmentviewbindingdelegate-kt:1.0.0'
 
-    implementation 'com.facebook.shimmer:shimmer:0.1.0'
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
 
 }
