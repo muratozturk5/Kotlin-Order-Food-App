@@ -1,5 +1,6 @@
 package com.muratozturk.kotlinmvvmproject.repo
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.muratozturk.kotlinmvvmproject.models.Categories
 import com.muratozturk.kotlinmvvmproject.models.Product
@@ -29,22 +30,13 @@ class Repository {
         return categoriesList
     }
 
-    fun getProducts(categoryId: Int): MutableLiveData<List<Product>> {
-        ApiUtils.getInterfaceDAO().getProducts(categoryId)
-            .enqueue(object : retrofit2.Callback<List<Product>> {
-                override fun onResponse(
-                    call: Call<List<Product>>,
-                    response: Response<List<Product>>
-                ) {
-                    val tempList = response.body()
-                    productList.value = tempList!!
-                }
+    suspend fun getProducts(categoryId: Int) {
+        val response = ApiUtils.getInterfaceDAO().getProducts(categoryId)
+        if (response.isSuccessful) {
+            val tempList = response.body()
+            productList.value = tempList!!
 
-                override fun onFailure(call: Call<List<Product>>, t: Throwable) {
-                }
+        }
 
-            })
-
-        return productList
     }
 }

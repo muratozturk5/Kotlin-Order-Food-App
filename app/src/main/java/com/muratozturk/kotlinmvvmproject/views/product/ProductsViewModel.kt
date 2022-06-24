@@ -2,20 +2,23 @@ package com.muratozturk.kotlinmvvmproject.views.product
 
 
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.muratozturk.kotlinmvvmproject.models.Product
 import com.muratozturk.kotlinmvvmproject.repo.Repository
+import kotlinx.coroutines.launch
 
-class ProductsViewModel(categoryId: Int) {
+class ProductsViewModel : ViewModel() {
 
     private val repository = Repository()
-    var productList = MutableLiveData<List<Product>>()
+    var productList: MutableLiveData<List<Product>> = repository.productList
 
-    init {
-        getProducts(categoryId)
-    }
 
-    private fun getProducts(categoryId: Int) {
-        productList = repository.getProducts(categoryId)
+    fun getProducts(categoryId: Int) {
+        viewModelScope.launch {
+            repository.getProducts(categoryId)
+        }
+
 
     }
 

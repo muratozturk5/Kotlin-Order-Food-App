@@ -35,7 +35,7 @@ class ProductsAdapter(private var productList: ArrayList<Product>) :
                 .error(R.drawable.error)
                 .placeholder(R.drawable.loading).into(productImageView)
             root.applyClickShrink()
-            
+
         }
     }
 

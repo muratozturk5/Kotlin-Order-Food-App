@@ -19,15 +19,15 @@ class ProductsFragment : Fragment(R.layout.fragment_products) {
 
 
     private val binding by viewBinding(FragmentProductsBinding::bind)
-    private lateinit var viewModel: ProductsViewModel
+    private val viewModel by lazy { ProductsViewModel() }
 
 
     private val args: ProductsFragmentArgs by navArgs()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val category = args.category
-        viewModel = ProductsViewModel(category.id)
 
+        viewModel.getProducts(category.id)
         setHasOptionsMenu(true)
         (activity as AppCompatActivity?)!!.supportActionBar!!.title = category.name
         (activity as AppCompatActivity?)!!.supportActionBar!!.setDisplayHomeAsUpEnabled(true)
