@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.muratozturk.kotlinmvvmproject.R
 import com.muratozturk.kotlinmvvmproject.databinding.FragmentCategoriesBinding
 import com.muratozturk.kotlinmvvmproject.models.Categories
+import com.muratozturk.kotlinmvvmproject.repo.Repository
 import com.muratozturk.kotlinmvvmproject.utils.CategoriesAdapter
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
 
@@ -27,22 +28,42 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setHasOptionsMenu(true)
+
         (activity as AppCompatActivity?)!!.supportActionBar!!.title =
             resources.getString(R.string.products)
         (activity as AppCompatActivity?)!!.supportActionBar!!.setDisplayHomeAsUpEnabled(false)
 
-        binding.shimmerLayout.startShimmer()
+
+        viewModel.isLoading.observe(viewLifecycleOwner) {
+            when (it!!) {
+                Repository.LOADING.LOADING -> {
+                    binding.shimmerLayout.startShimmer()
+                }
+                Repository.LOADING.DONE -> {
+                    binding.shimmerLayout.apply {
+                        stopShimmer()
+                        visibility = View.GONE
+                    }
+                    binding.categoriesRecyclerView.visibility = View.VISIBLE
+                }
+
+                Repository.LOADING.ERROR -> {
+                    binding.shimmerLayout.apply {
+                        stopShimmer()
+                        visibility = View.GONE
+                    }
+                    binding.categoriesRecyclerView.visibility = View.VISIBLE
+                }
+            }
+
+        }
+
+
 
         viewModel.categoryList.observe(viewLifecycleOwner) { categories ->
             val productAdapter = CategoriesAdapter(categories as ArrayList<Categories>)
             binding.categoriesRecyclerView.adapter = productAdapter
             productAdapter.onClick = ::clickCategory
-            binding.shimmerLayout.apply {
-                stopShimmer()
-                visibility = View.GONE
-            }
-            binding.categoriesRecyclerView.visibility = View.VISIBLE
 
         }
         binding.categoriesRecyclerView.layoutManager = GridLayoutManager(context, 2)

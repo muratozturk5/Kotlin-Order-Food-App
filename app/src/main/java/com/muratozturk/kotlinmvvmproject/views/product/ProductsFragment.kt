@@ -8,9 +8,11 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.muratozturk.kotlinmvvmproject.R
 import com.muratozturk.kotlinmvvmproject.databinding.FragmentProductsBinding
 import com.muratozturk.kotlinmvvmproject.models.Product
+import com.muratozturk.kotlinmvvmproject.repo.Repository
 import com.muratozturk.kotlinmvvmproject.utils.ProductsAdapter
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
 
@@ -31,17 +33,38 @@ class ProductsFragment : Fragment(R.layout.fragment_products) {
         setHasOptionsMenu(true)
         (activity as AppCompatActivity?)!!.supportActionBar!!.title = category.name
         (activity as AppCompatActivity?)!!.supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        binding.shimmerLayout.startShimmer()
+
+        viewModel.isLoading.observe(viewLifecycleOwner) {
+            when (it!!) {
+                Repository.LOADING.LOADING -> {
+                    binding.shimmerLayout.startShimmer()
+                }
+                Repository.LOADING.DONE -> {
+                    binding.shimmerLayout.apply {
+                        stopShimmer()
+                        visibility = View.GONE
+                    }
+                    binding.productsRecyclerView.visibility = View.VISIBLE
+                }
+
+                Repository.LOADING.ERROR -> {
+                    binding.shimmerLayout.apply {
+                        stopShimmer()
+                        visibility = View.GONE
+                    }
+                    binding.productsRecyclerView.visibility = View.VISIBLE
+                }
+            }
+
+        }
+
+
         viewModel.productList.observe(viewLifecycleOwner) { products ->
             val productsAdapter = ProductsAdapter(products as ArrayList<Product>)
             binding.productsRecyclerView.adapter = productsAdapter
-            binding.shimmerLayout.apply {
-                stopShimmer()
-                visibility = View.GONE
-            }
-            binding.productsRecyclerView.visibility = View.VISIBLE
+
         }
-        binding.productsRecyclerView.layoutManager = GridLayoutManager(context, 2)
+        binding.productsRecyclerView.layoutManager = LinearLayoutManager(context)
         binding.productsRecyclerView.setHasFixedSize(true)
     }
 
@@ -54,4 +77,6 @@ class ProductsFragment : Fragment(R.layout.fragment_products) {
         }
         return super.onOptionsItemSelected(item)
     }
+
+
 }

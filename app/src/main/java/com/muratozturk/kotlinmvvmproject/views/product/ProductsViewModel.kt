@@ -12,6 +12,7 @@ class ProductsViewModel : ViewModel() {
 
     private val repository = Repository()
     var productList: MutableLiveData<List<Product>> = repository.productList
+    var isLoading: MutableLiveData<Repository.LOADING> = repository.isLoading
 
 
     fun getProducts(categoryId: Int) {

@@ -30,6 +30,7 @@ class ProductsAdapter(private var productList: ArrayList<Product>) :
 
         holder.productCardBinding.apply {
             productText.text = product.name
+            productPrice.text = String.format("%.2f", product.price) + " ₺"
             Picasso.get()
                 .load("https://liwapos.com/samba.mobil/Content/" + product.imagePath.substring(39))
                 .error(R.drawable.error)
