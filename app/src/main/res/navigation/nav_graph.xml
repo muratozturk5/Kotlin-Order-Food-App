@@ -28,4 +28,9 @@
         android:name="com.muratozturk.kotlinmvvmproject.views.search.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/basketFragment"
+        android:name="com.muratozturk.kotlinmvvmproject.views.basket.BasketFragment"
+        android:label="fragment_basket"
+        tools:layout="@layout/fragment_basket" />
 </navigation>

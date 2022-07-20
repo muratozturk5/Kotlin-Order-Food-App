@@ -3,5 +3,6 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="products">Ürünler</string>
-    <string name="search">Arama Yap</string>
+    <string name="search">Ara</string>
+    <string name="basket">Sepet</string>
 </resources>

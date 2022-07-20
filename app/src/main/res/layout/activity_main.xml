@@ -19,15 +19,32 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/nav_graph" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+    <!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+    <!--        android:id="@+id/navigation_view"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_gravity="start"-->
+    <!--        android:fitsSystemWindows="true"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:menu="@menu/menu" />-->
+
+    <me.ibrahimsn.lib.SmoothBottomBar
         android:id="@+id/navigation_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
+        android:layout_height="60dp"
+        app:backgroundColor="@color/primary"
+        app:cornerRadius="0dp"
+        app:corners="all"
+        app:iconSize="22dp"
+        app:iconTint="@color/secondary"
+        app:iconTintActive="@color/secondary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/menu" />
+        app:menu="@menu/menu"
+        app:textColor="@color/secondary"
+        app:textSize="15sp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

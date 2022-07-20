@@ -5,11 +5,14 @@
     <item
         android:id="@+id/categoriesFragment"
         android:icon="@drawable/ic_baseline_fastfood_24"
-        android:title="Kategoriler" />
+        android:title="@string/products" />
     <item
         android:id="@+id/searchFragment"
         android:icon="@drawable/ic_baseline_search_24"
-        android:title="Ara" />
+        android:title="@string/search" />
 
-
+    <item
+        android:id="@+id/basketFragment"
+        android:icon="@drawable/ic_baseline_shopping_basket_24"
+        android:title="@string/basket" />
 </menu>

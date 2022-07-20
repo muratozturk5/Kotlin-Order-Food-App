@@ -8,6 +8,7 @@
     tools:context=".views.search.SearchFragment">
 
 
+
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/shimmerLayout"
         android:layout_width="0dp"
@@ -24,6 +25,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="6dp">
+
+            <include layout="@layout/product_placeholder" />
+
+            <include layout="@layout/product_placeholder" />
+
+            <include layout="@layout/product_placeholder" />
 
             <include layout="@layout/product_placeholder" />
 

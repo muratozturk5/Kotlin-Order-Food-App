@@ -37,6 +37,12 @@
 
             <include layout="@layout/product_placeholder" />
 
+            <include layout="@layout/product_placeholder" />
+
+            <include layout="@layout/product_placeholder" />
+
+            <include layout="@layout/product_placeholder" />
+
 
         </LinearLayout>
 

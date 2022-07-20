@@ -34,6 +34,8 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
         (activity as AppCompatActivity?)!!.supportActionBar!!.setDisplayHomeAsUpEnabled(false)
 
 
+        viewModel.getCategories()
+
         viewModel.isLoading.observe(viewLifecycleOwner) {
             when (it!!) {
                 Repository.LOADING.LOADING -> {

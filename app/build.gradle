@@ -59,23 +59,22 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
-    //Picasso
+    // Picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
 
     // One Line ViewBinding
     implementation 'com.github.Zhuinden:fragmentviewbindingdelegate-kt:1.0.0'
 
-    //Coroutines
+    // Coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.3'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.3'
 
     // Shimmer Effect
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
-    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    // Smooth BottomBar
+    implementation 'com.github.ibrahimsn98:SmoothBottomBar:1.7.9'
 
-//    implementation 'com.github.jgabrielfreitas:BlurImageView:1.0.1'
-    implementation 'com.github.Dimezis:BlurView:version-2.0.2'
 
 
 
