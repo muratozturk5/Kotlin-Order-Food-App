@@ -11,11 +11,13 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class Repository {
-    enum class LOADING{
-        LOADING,DONE,ERROR
+    enum class LOADING {
+        LOADING, DONE, ERROR
     }
+
     val categoriesList = MutableLiveData<List<Categories>>()
     val productList = MutableLiveData<List<Product>>()
+    val searchList = MutableLiveData<List<Product>>()
     val isLoading = MutableLiveData<LOADING>()
 
     private val dif: DAOInterface = ApiUtils.getInterfaceDAO()
@@ -47,12 +49,21 @@ class Repository {
             val tempList = response.body()
             productList.value = tempList!!
             isLoading.value = LOADING.DONE
-
-        }else
-        {
+        } else {
             isLoading.value = LOADING.ERROR
         }
+    }
 
+    suspend fun getSearch() {
+        isLoading.value = LOADING.LOADING
+        val response = ApiUtils.getInterfaceDAO().getSearch()
+        if (response.isSuccessful) {
+            val tempList = response.body()
+            searchList.value = tempList!!
+            isLoading.value = LOADING.DONE
+        } else {
+            isLoading.value = LOADING.ERROR
 
+        }
     }
 }

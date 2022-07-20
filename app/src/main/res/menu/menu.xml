@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <item
+        android:id="@+id/categoriesFragment"
+        android:icon="@drawable/ic_baseline_fastfood_24"
+        android:title="Kategoriler" />
+    <item
+        android:id="@+id/searchFragment"
+        android:icon="@drawable/ic_baseline_search_24"
+        android:title="Ara" />
+
+
+</menu>

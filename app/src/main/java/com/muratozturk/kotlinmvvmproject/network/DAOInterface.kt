@@ -16,4 +16,7 @@ interface DAOInterface {
 
     @GET("JsonItems/{id}")
     suspend fun getProducts(@Path("id") id: Int): Response<List<Product>>
+
+    @GET("JsonSearch")
+    suspend fun getSearch(): Response<List<Product>>
 }

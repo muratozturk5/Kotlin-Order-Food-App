@@ -26,10 +26,15 @@
             android:padding="6dp">
 
             <include layout="@layout/product_placeholder" />
+
             <include layout="@layout/product_placeholder" />
+
             <include layout="@layout/product_placeholder" />
+
             <include layout="@layout/product_placeholder" />
+
             <include layout="@layout/product_placeholder" />
+
             <include layout="@layout/product_placeholder" />
 
 
@@ -42,7 +47,6 @@
         android:id="@+id/productsRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="6dp"
         android:visibility="gone" />
 
 

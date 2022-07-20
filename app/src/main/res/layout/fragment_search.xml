@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/background"
     android:layout_height="match_parent"
-    tools:context=".views.category.CategoriesFragment">
+    android:background="@color/background"
+    tools:context=".views.search.SearchFragment">
 
 
     <com.facebook.shimmer.ShimmerFrameLayout
@@ -25,13 +25,17 @@
             android:orientation="vertical"
             android:padding="6dp">
 
-            <include layout="@layout/placeholder" />
+            <include layout="@layout/product_placeholder" />
 
-            <include layout="@layout/placeholder" />
+            <include layout="@layout/product_placeholder" />
 
-            <include layout="@layout/placeholder" />
+            <include layout="@layout/product_placeholder" />
 
-            <include layout="@layout/placeholder" />
+            <include layout="@layout/product_placeholder" />
+
+            <include layout="@layout/product_placeholder" />
+
+            <include layout="@layout/product_placeholder" />
 
 
         </LinearLayout>
@@ -40,7 +44,7 @@
     </com.facebook.shimmer.ShimmerFrameLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/categoriesRecyclerView"
+        android:id="@+id/productsRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone" />
