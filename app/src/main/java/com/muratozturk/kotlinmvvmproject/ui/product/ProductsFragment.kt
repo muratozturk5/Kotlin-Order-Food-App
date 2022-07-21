@@ -17,6 +17,7 @@ import com.muratozturk.kotlinmvvmproject.R
 import com.muratozturk.kotlinmvvmproject.databinding.FragmentProductsBinding
 import com.muratozturk.kotlinmvvmproject.models.Product
 import com.muratozturk.kotlinmvvmproject.repo.Repository
+import com.muratozturk.kotlinmvvmproject.ui.search.SearchFragmentDirections
 import com.muratozturk.kotlinmvvmproject.utils.ProductsAdapter
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
 
@@ -66,6 +67,7 @@ class ProductsFragment : Fragment(R.layout.fragment_products) {
         viewModel.productList.observe(viewLifecycleOwner) { products ->
             val productsAdapter = ProductsAdapter(products as ArrayList<Product>)
             binding.productsRecyclerView.adapter = productsAdapter
+            productsAdapter.onClick = ::clickProduct
 
         }
         binding.productsRecyclerView.layoutManager = LinearLayoutManager(context)
@@ -92,5 +94,11 @@ class ProductsFragment : Fragment(R.layout.fragment_products) {
         }, viewLifecycleOwner, Lifecycle.State.RESUMED)
     }
 
+    private fun clickProduct(product: Product) {
+        val productNavigation =
+            ProductsFragmentDirections.actionProductsFragmentToProductDetailFragment(product)
 
+        findNavController().navigate(productNavigation)
+
+    }
 }

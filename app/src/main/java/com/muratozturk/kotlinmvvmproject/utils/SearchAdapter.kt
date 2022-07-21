@@ -7,6 +7,7 @@ import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
 import com.muratozturk.kotlinmvvmproject.R
 import com.muratozturk.kotlinmvvmproject.databinding.ProductCardBinding
+import com.muratozturk.kotlinmvvmproject.models.Categories
 import com.muratozturk.kotlinmvvmproject.models.Product
 import com.muratozturk.kotlinmvvmproject.services.applyClickShrink
 import com.squareup.picasso.Picasso
@@ -14,6 +15,7 @@ import com.squareup.picasso.Picasso
 class SearchAdapter() :
     RecyclerView.Adapter<SearchAdapter.ProductsViewHolder>(), Filterable {
 
+    var onClick: (Product) -> Unit = {}
     private var productList = ArrayList<Product>()
     var productFilterList = ArrayList<Product>()
 
@@ -41,11 +43,12 @@ class SearchAdapter() :
             productText.text = product.name
             productPrice.text = String.format("%.2f", product.price) + " ₺"
             Picasso.get()
-                .load("https://liwapos.com/samba.mobil/Content/" + product.imagePath.substring(39))
+                .load("https://liwapos.com/samba.mobil/Content/" + product.imagePath?.substring(39))
                 .error(R.drawable.error)
                 .placeholder(R.drawable.loading).into(productImageView)
             root.applyClickShrink()
 
+            root.setOnClickListener { onClick(product) }
         }
     }
 
@@ -72,7 +75,7 @@ class SearchAdapter() :
                     for (row in productList) {
                         row.name.let { productName ->
 
-                            if (productName.lowercase().contains(searchText)) {
+                            if (productName!!.lowercase().contains(searchText)) {
                                 resultList.add(row)
                             }
                         }

@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.muratozturk.kotlinmvvmproject.R
 import com.muratozturk.kotlinmvvmproject.databinding.ProductCardBinding
+import com.muratozturk.kotlinmvvmproject.models.Categories
 import com.muratozturk.kotlinmvvmproject.models.Product
 import com.muratozturk.kotlinmvvmproject.services.applyClickShrink
 import com.squareup.picasso.Picasso
@@ -15,6 +16,7 @@ class ProductsAdapter(private var productList: ArrayList<Product>) :
     class ProductsViewHolder(val productCardBinding: ProductCardBinding) :
         RecyclerView.ViewHolder(productCardBinding.root)
 
+    var onClick: (Product) -> Unit = {}
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -32,11 +34,12 @@ class ProductsAdapter(private var productList: ArrayList<Product>) :
             productText.text = product.name
             productPrice.text = String.format("%.2f", product.price) + " ₺"
             Picasso.get()
-                .load("https://liwapos.com/samba.mobil/Content/" + product.imagePath.substring(39))
+                .load("https://liwapos.com/samba.mobil/Content/" + product.imagePath?.substring(39))
                 .error(R.drawable.error)
                 .placeholder(R.drawable.loading).into(productImageView)
             root.applyClickShrink()
 
+            root.setOnClickListener { onClick(product) }
         }
     }
 

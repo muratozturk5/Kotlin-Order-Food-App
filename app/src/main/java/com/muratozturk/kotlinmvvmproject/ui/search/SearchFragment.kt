@@ -10,10 +10,13 @@ import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.muratozturk.kotlinmvvmproject.R
 import com.muratozturk.kotlinmvvmproject.databinding.FragmentSearchBinding
+import com.muratozturk.kotlinmvvmproject.models.Product
 import com.muratozturk.kotlinmvvmproject.repo.Repository
+import com.muratozturk.kotlinmvvmproject.ui.category.CategoriesFragmentDirections
 import com.muratozturk.kotlinmvvmproject.utils.SearchAdapter
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
 
@@ -62,6 +65,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
             binding.productsRecyclerView.adapter = productsAdapter.also { adapter ->
                 adapter.updateList(products)
 
+                adapter.onClick = ::clickProduct
             }
         }
         binding.productsRecyclerView.layoutManager = LinearLayoutManager(context)
@@ -85,13 +89,6 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
                     }
 
                     override fun onQueryTextChange(newText: String): Boolean {
-                        Log.e("onQueryTextChange", newText)
-//                if (adapter != null) {
-//                    if (adapter.getFilter() != null) {
-//                        adapter.getFilter().filter(newText)
-//                    }
-//                }
-
                         productsAdapter.filter.filter(newText)
                         return false
                     }
@@ -99,22 +96,17 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
             }
 
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-                // Handle the menu selection
                 return false
-//                return when (menuItem.itemId) {
-//                    R.id.menu_clear -> {
-//                        // clearCompletedTasks()
-//                        true
-//                    }
-//                    R.id.menu_refresh -> {
-//                        // loadTasks(true)
-//                        true
-//                    }
-//                    else -> false
-//                }
             }
         }, viewLifecycleOwner, Lifecycle.State.RESUMED)
     }
 
+    private fun clickProduct(product: Product) {
+        val productNavigation =
+            SearchFragmentDirections.actionSearchFragmentToProductDetailFragment(product)
+
+        findNavController().navigate(productNavigation)
+
+    }
 
 }

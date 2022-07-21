@@ -22,12 +22,19 @@
         <argument
             android:name="category"
             app:argType="com.muratozturk.kotlinmvvmproject.models.Categories" />
+        <action
+            android:id="@+id/action_productsFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.muratozturk.kotlinmvvmproject.ui.search.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/basketFragment"
         android:name="com.muratozturk.kotlinmvvmproject.ui.basket.BasketFragment"
@@ -38,4 +45,13 @@
         android:name="com.muratozturk.kotlinmvvmproject.ui.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <dialog
+        android:id="@+id/productDetailFragment"
+        android:name="com.muratozturk.kotlinmvvmproject.ui.productdetail.ProductDetailFragment"
+        android:label="fragment_product_detail"
+        tools:layout="@layout/fragment_product_detail" >
+        <argument
+            android:name="product"
+            app:argType="com.muratozturk.kotlinmvvmproject.models.Product" />
+    </dialog>
 </navigation>

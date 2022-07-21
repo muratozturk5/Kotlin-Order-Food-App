@@ -9,4 +9,6 @@
     <string name="categories">Kategoriler</string>
     <string name="order">Sipariş</string>
     <string name="profile">Profil</string>
+    <string name="product_image_description">Ürün Resmi</string>
+    <string name="add_basket">Sepete Ekle</string>
 </resources>

@@ -8,7 +8,6 @@
     tools:context=".ui.category.CategoriesFragment">
 
 
-
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/shimmerLayout"
         android:layout_width="0dp"
@@ -17,7 +16,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="gone">
+        tools:visibility="visible">
 
 
         <LinearLayout
@@ -33,7 +32,6 @@
             <include layout="@layout/placeholder" />
 
             <include layout="@layout/placeholder" />
-
 
 
         </LinearLayout>
