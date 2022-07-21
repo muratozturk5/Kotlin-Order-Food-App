@@ -1,11 +1,9 @@
-package com.muratozturk.kotlinmvvmproject.views.search
+package com.muratozturk.kotlinmvvmproject.ui.search
 
-import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.view.inputmethod.EditorInfo
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuHost
@@ -15,9 +13,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.muratozturk.kotlinmvvmproject.R
 import com.muratozturk.kotlinmvvmproject.databinding.FragmentSearchBinding
-import com.muratozturk.kotlinmvvmproject.models.Product
 import com.muratozturk.kotlinmvvmproject.repo.Repository
-import com.muratozturk.kotlinmvvmproject.utils.ProductsAdapter
 import com.muratozturk.kotlinmvvmproject.utils.SearchAdapter
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
 

@@ -1,16 +1,8 @@
-package com.muratozturk.kotlinmvvmproject.views.category
+package com.muratozturk.kotlinmvvmproject.ui.category
 
-import android.annotation.SuppressLint
-import android.opengl.Visibility
 import android.os.Bundle
-import android.util.Log
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
 import android.view.View
-import android.view.inputmethod.EditorInfo
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager

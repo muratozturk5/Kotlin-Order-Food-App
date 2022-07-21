@@ -1,4 +1,4 @@
-package com.muratozturk.kotlinmvvmproject.views.category
+package com.muratozturk.kotlinmvvmproject.ui.basket
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,16 +8,15 @@ import com.muratozturk.kotlinmvvmproject.models.Categories
 import com.muratozturk.kotlinmvvmproject.repo.Repository
 import kotlinx.coroutines.launch
 
-class CategoriesViewModel : ViewModel() {
+class BasketViewModel : ViewModel() {
 
     private val repository = Repository()
-    var categoryList: LiveData<List<Categories>> = repository.categoriesList
-    var isLoading: LiveData<Repository.LOADING> = repository.isLoading
+    private var _categoryList: MutableLiveData<List<Categories>> = repository.categoriesList
+    var isLoading: MutableLiveData<Repository.LOADING> = repository.isLoading
 
+    val categoryList: LiveData<List<Categories>>
+        get() = _categoryList
 
-//    init {
-//        getCategories()
-//    }
 
     fun getCategories() {
 
@@ -25,5 +24,4 @@ class CategoriesViewModel : ViewModel() {
             repository.getCategories()
         }
     }
-
 }

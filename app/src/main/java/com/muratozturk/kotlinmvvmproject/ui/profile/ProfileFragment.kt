@@ -1,4 +1,4 @@
-package com.muratozturk.kotlinmvvmproject.views.basket
+package com.muratozturk.kotlinmvvmproject.ui.profile
 
 import android.os.Bundle
 import android.view.*
@@ -8,20 +8,17 @@ import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.lifecycle.Lifecycle
 import com.muratozturk.kotlinmvvmproject.R
-import com.muratozturk.kotlinmvvmproject.databinding.FragmentBasketBinding
-import com.muratozturk.kotlinmvvmproject.views.category.CategoriesViewModel
-import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
 
 
-class BasketFragment : Fragment(R.layout.fragment_basket) {
+class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
-    private val binding by viewBinding(FragmentBasketBinding::bind)
-    private val viewModel by lazy { CategoriesViewModel() }
+//    private  val binding by viewBinding()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         (activity as AppCompatActivity?)!!.supportActionBar!!.title =
-            resources.getString(R.string.basket)
+            resources.getString(R.string.profile)
         (activity as AppCompatActivity?)!!.supportActionBar!!.setDisplayHomeAsUpEnabled(false)
 
 

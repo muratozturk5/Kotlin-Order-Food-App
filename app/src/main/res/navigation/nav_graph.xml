@@ -7,30 +7,35 @@
 
     <fragment
         android:id="@+id/categoriesFragment"
-        android:name="com.muratozturk.kotlinmvvmproject.views.category.CategoriesFragment"
+        android:name="com.muratozturk.kotlinmvvmproject.ui.category.CategoriesFragment"
         android:label="fragment_categories"
-        tools:layout="@layout/fragment_categories" >
+        tools:layout="@layout/fragment_categories">
         <action
             android:id="@+id/action_categoriesFragment_to_productsFragment"
             app:destination="@id/productsFragment" />
     </fragment>
     <fragment
         android:id="@+id/productsFragment"
-        android:name="com.muratozturk.kotlinmvvmproject.views.product.ProductsFragment"
+        android:name="com.muratozturk.kotlinmvvmproject.ui.product.ProductsFragment"
         android:label="fragment_products"
-        tools:layout="@layout/fragment_products" >
+        tools:layout="@layout/fragment_products">
         <argument
             android:name="category"
             app:argType="com.muratozturk.kotlinmvvmproject.models.Categories" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.muratozturk.kotlinmvvmproject.views.search.SearchFragment"
+        android:name="com.muratozturk.kotlinmvvmproject.ui.search.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
     <fragment
         android:id="@+id/basketFragment"
-        android:name="com.muratozturk.kotlinmvvmproject.views.basket.BasketFragment"
+        android:name="com.muratozturk.kotlinmvvmproject.ui.basket.BasketFragment"
         android:label="fragment_basket"
         tools:layout="@layout/fragment_basket" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.muratozturk.kotlinmvvmproject.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

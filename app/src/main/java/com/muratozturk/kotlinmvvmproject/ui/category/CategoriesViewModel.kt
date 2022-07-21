@@ -1,23 +1,28 @@
-package com.muratozturk.kotlinmvvmproject.views.search
+package com.muratozturk.kotlinmvvmproject.ui.category
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.muratozturk.kotlinmvvmproject.models.Product
+import com.muratozturk.kotlinmvvmproject.models.Categories
 import com.muratozturk.kotlinmvvmproject.repo.Repository
 import kotlinx.coroutines.launch
 
-class SearchViewModel : ViewModel() {
+class CategoriesViewModel : ViewModel() {
 
     private val repository = Repository()
-    var productList: LiveData<List<Product>> = repository.searchList
+    var categoryList: LiveData<List<Categories>> = repository.categoriesList
     var isLoading: LiveData<Repository.LOADING> = repository.isLoading
 
 
-    fun getSearch() {
+//    init {
+//        getCategories()
+//    }
+
+    fun getCategories() {
+
         viewModelScope.launch {
-            repository.getSearch()
+            repository.getCategories()
         }
     }
+
 }

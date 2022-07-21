@@ -1,8 +1,7 @@
-package com.muratozturk.kotlinmvvmproject.views.product
+package com.muratozturk.kotlinmvvmproject.ui.product
 
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.muratozturk.kotlinmvvmproject.models.Product
