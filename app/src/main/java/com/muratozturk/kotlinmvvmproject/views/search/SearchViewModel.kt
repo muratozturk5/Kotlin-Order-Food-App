@@ -1,5 +1,6 @@
 package com.muratozturk.kotlinmvvmproject.views.search
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -10,8 +11,9 @@ import kotlinx.coroutines.launch
 class SearchViewModel : ViewModel() {
 
     private val repository = Repository()
-    var productList: MutableLiveData<List<Product>> = repository.searchList
-    var isLoading: MutableLiveData<Repository.LOADING> = repository.isLoading
+    var productList: LiveData<List<Product>> = repository.searchList
+    var isLoading: LiveData<Repository.LOADING> = repository.isLoading
+
 
     fun getSearch() {
         viewModelScope.launch {

@@ -1,10 +1,18 @@
 package com.muratozturk.kotlinmvvmproject.views.product
 
 import android.os.Bundle
+import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
+import android.view.inputmethod.EditorInfo
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
+import androidx.core.view.MenuHost
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
@@ -30,7 +38,7 @@ class ProductsFragment : Fragment(R.layout.fragment_products) {
         val category = args.category
 
         viewModel.getProducts(category.id)
-        setHasOptionsMenu(true)
+
         (activity as AppCompatActivity?)!!.supportActionBar!!.title = category.name
         (activity as AppCompatActivity?)!!.supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
@@ -66,16 +74,26 @@ class ProductsFragment : Fragment(R.layout.fragment_products) {
         }
         binding.productsRecyclerView.layoutManager = LinearLayoutManager(context)
         binding.productsRecyclerView.setHasFixedSize(true)
-    }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            android.R.id.home -> {
-                findNavController().popBackStack()
-                return true
+
+        val menuHost: MenuHost = requireActivity()
+        menuHost.addMenuProvider(object : MenuProvider {
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                menuInflater.inflate(R.menu.search, menu)
+                val item = menu.findItem(R.id.action_search)
+                item.isVisible = false
             }
-        }
-        return super.onOptionsItemSelected(item)
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                return when (menuItem.itemId) {
+                    android.R.id.home -> {
+                        findNavController().popBackStack()
+                        true
+                    }
+                    else -> false
+                }
+            }
+        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
     }
 
 

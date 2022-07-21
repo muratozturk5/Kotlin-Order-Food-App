@@ -3,11 +3,14 @@ package com.muratozturk.kotlinmvvmproject.views.category
 import android.annotation.SuppressLint
 import android.opengl.Visibility
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
+import android.view.inputmethod.EditorInfo
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -25,12 +28,13 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
     private val binding by viewBinding(FragmentCategoriesBinding::bind)
     private val viewModel by lazy { CategoriesViewModel() }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
 
         (activity as AppCompatActivity?)!!.supportActionBar!!.title =
-            resources.getString(R.string.products)
+            resources.getString(R.string.categories)
         (activity as AppCompatActivity?)!!.supportActionBar!!.setDisplayHomeAsUpEnabled(false)
 
 

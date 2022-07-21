@@ -5,14 +5,17 @@
     <item
         android:id="@+id/categoriesFragment"
         android:icon="@drawable/ic_baseline_fastfood_24"
-        android:title="@string/products" />
+        android:title="@string/order" />
     <item
         android:id="@+id/searchFragment"
         android:icon="@drawable/ic_baseline_search_24"
         android:title="@string/search" />
-
     <item
         android:id="@+id/basketFragment"
         android:icon="@drawable/ic_baseline_shopping_basket_24"
         android:title="@string/basket" />
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="@string/profile" />
 </menu>

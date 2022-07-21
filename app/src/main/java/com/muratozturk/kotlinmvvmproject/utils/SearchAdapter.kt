@@ -2,6 +2,8 @@ package com.muratozturk.kotlinmvvmproject.utils
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
 import com.muratozturk.kotlinmvvmproject.R
 import com.muratozturk.kotlinmvvmproject.databinding.ProductCardBinding
@@ -9,8 +11,15 @@ import com.muratozturk.kotlinmvvmproject.models.Product
 import com.muratozturk.kotlinmvvmproject.services.applyClickShrink
 import com.squareup.picasso.Picasso
 
-class SearchAdapter(private var productList: ArrayList<Product>) :
-    RecyclerView.Adapter<SearchAdapter.ProductsViewHolder>() {
+class SearchAdapter() :
+    RecyclerView.Adapter<SearchAdapter.ProductsViewHolder>(), Filterable {
+
+    private var productList = ArrayList<Product>()
+    var productFilterList = ArrayList<Product>()
+
+    init {
+        productFilterList = productList
+    }
 
     class ProductsViewHolder(val productCardBinding: ProductCardBinding) :
         RecyclerView.ViewHolder(productCardBinding.root)
@@ -26,7 +35,7 @@ class SearchAdapter(private var productList: ArrayList<Product>) :
     }
 
     override fun onBindViewHolder(holder: SearchAdapter.ProductsViewHolder, position: Int) {
-        val product = productList[position]
+        val product = productFilterList[position]
 
         holder.productCardBinding.apply {
             productText.text = product.name
@@ -40,7 +49,48 @@ class SearchAdapter(private var productList: ArrayList<Product>) :
         }
     }
 
+    fun updateList(list: List<Product>) {
+        productList.clear()
+        productList.addAll(list)
+        notifyDataSetChanged()
+    }
+
     override fun getItemCount(): Int {
-        return productList.size
+        return productFilterList.size
+    }
+
+    override fun getFilter(): Filter {
+
+        return object : Filter() {
+            override fun performFiltering(constraint: CharSequence?): FilterResults {
+
+                val searchText = constraint.toString().lowercase()
+                productFilterList = if (searchText.isEmpty()) {
+                    productList
+                } else {
+                    val resultList = ArrayList<Product>()
+                    for (row in productList) {
+                        row.name.let { productName ->
+
+                            if (productName.lowercase().contains(searchText)) {
+                                resultList.add(row)
+                            }
+                        }
+
+                    }
+                    resultList
+                }
+
+                val filterResults = FilterResults()
+                filterResults.values = productFilterList
+
+                return filterResults
+            }
+
+            override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+                productFilterList = results?.values as ArrayList<Product>
+                notifyDataSetChanged()
+            }
+        }
     }
 }

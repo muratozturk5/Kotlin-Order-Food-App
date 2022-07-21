@@ -5,4 +5,8 @@
     <string name="products">Ürünler</string>
     <string name="search">Ara</string>
     <string name="basket">Sepet</string>
+    <string name="search_product">Ürün Ara</string>
+    <string name="categories">Kategoriler</string>
+    <string name="order">Sipariş</string>
+    <string name="profile">Profil</string>
 </resources>

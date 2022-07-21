@@ -1,11 +1,18 @@
 package com.muratozturk.kotlinmvvmproject
 
-import androidx.appcompat.app.AppCompatActivity
+import android.app.SearchManager
 import android.os.Bundle
+import android.os.Handler
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
 import android.widget.PopupMenu
-import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
+import androidx.core.view.MenuItemCompat
+import androidx.core.view.MenuProvider
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.NavigationUI
 import com.muratozturk.kotlinmvvmproject.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -15,9 +22,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
-
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 

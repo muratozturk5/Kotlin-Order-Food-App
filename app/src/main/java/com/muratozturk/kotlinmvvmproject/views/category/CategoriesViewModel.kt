@@ -11,12 +11,13 @@ import kotlinx.coroutines.launch
 class CategoriesViewModel : ViewModel() {
 
     private val repository = Repository()
-    private var _categoryList: MutableLiveData<List<Categories>> = repository.categoriesList
-    var isLoading: MutableLiveData<Repository.LOADING> = repository.isLoading
+    var categoryList: LiveData<List<Categories>> = repository.categoriesList
+    var isLoading: LiveData<Repository.LOADING> = repository.isLoading
 
-    val categoryList: LiveData<List<Categories>>
-        get() = _categoryList
 
+//    init {
+//        getCategories()
+//    }
 
     fun getCategories() {
 
