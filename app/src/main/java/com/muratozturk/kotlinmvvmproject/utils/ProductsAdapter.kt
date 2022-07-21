@@ -2,6 +2,7 @@ package com.muratozturk.kotlinmvvmproject.utils
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import com.muratozturk.kotlinmvvmproject.R
 import com.muratozturk.kotlinmvvmproject.databinding.ProductCardBinding
@@ -41,6 +42,10 @@ class ProductsAdapter(private var productList: ArrayList<Product>) :
 
             root.setOnClickListener { onClick(product) }
         }
+
+
+        holder.productCardBinding.root.animation =
+            AnimationUtils.loadAnimation(holder.itemView.context, R.anim.recyclerview_anim)
     }
 
     override fun getItemCount(): Int {

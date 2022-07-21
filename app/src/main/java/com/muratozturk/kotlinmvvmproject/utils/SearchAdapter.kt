@@ -2,6 +2,7 @@ package com.muratozturk.kotlinmvvmproject.utils
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
@@ -50,6 +51,9 @@ class SearchAdapter() :
 
             root.setOnClickListener { onClick(product) }
         }
+
+        holder.productCardBinding.root.animation =
+            AnimationUtils.loadAnimation(holder.itemView.context, R.anim.recyclerview_anim)
     }
 
     fun updateList(list: List<Product>) {

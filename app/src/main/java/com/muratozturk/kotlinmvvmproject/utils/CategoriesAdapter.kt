@@ -2,6 +2,7 @@ package com.muratozturk.kotlinmvvmproject.utils
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import com.muratozturk.kotlinmvvmproject.R
 import com.muratozturk.kotlinmvvmproject.databinding.CategoryCardBinding
@@ -38,6 +39,10 @@ class CategoriesAdapter(private var kitaplarList: ArrayList<Categories>) :
                 onClick(kitap)
             }
         }
+
+
+        holder.categoryCardBinding.root.animation =
+            AnimationUtils.loadAnimation(holder.itemView.context, R.anim.recyclerview_anim)
     }
 
     override fun getItemCount(): Int {
