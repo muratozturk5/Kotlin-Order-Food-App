@@ -1,18 +1,16 @@
-package com.muratozturk.kotlinmvvmproject.network
+package com.muratozturk.kotlinmvvmproject.data.retrofit
 
 
-import com.muratozturk.kotlinmvvmproject.models.Categories
-import com.muratozturk.kotlinmvvmproject.models.Product
-import retrofit2.Call
+import com.muratozturk.kotlinmvvmproject.data.models.Categories
+import com.muratozturk.kotlinmvvmproject.data.models.Product
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
-import retrofit2.http.Query
 
 interface DAOInterface {
 
     @GET("JsonCategories")
-    fun getCategories(): Call<List<Categories>>
+    suspend fun getCategories(): Response<List<Categories>>
 
     @GET("JsonItems/{id}")
     suspend fun getProducts(@Path("id") id: Int): Response<List<Product>>

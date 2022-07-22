@@ -9,7 +9,7 @@
     android:clickable="true"
     android:focusable="true"
     android:foreground="?attr/selectableItemBackground"
-    app:cardCornerRadius="10dp"
+    app:cardCornerRadius="20dp"
     app:cardElevation="@dimen/card_elevation_small"
     app:strokeColor="@color/primary"
     app:strokeWidth="2dp">

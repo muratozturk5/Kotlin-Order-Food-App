@@ -1,4 +1,4 @@
-package com.muratozturk.kotlinmvvmproject.models
+package com.muratozturk.kotlinmvvmproject.data.models
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

@@ -1,4 +1,4 @@
-package com.muratozturk.kotlinmvvmproject.services
+package com.muratozturk.kotlinmvvmproject.common
 
 import android.animation.Animator
 import android.animation.ObjectAnimator

@@ -1,4 +1,4 @@
-package com.muratozturk.kotlinmvvmproject.network
+package com.muratozturk.kotlinmvvmproject.data.retrofit
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

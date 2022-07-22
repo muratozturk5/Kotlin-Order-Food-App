@@ -19,12 +19,12 @@
         android:name="com.muratozturk.kotlinmvvmproject.ui.product.ProductsFragment"
         android:label="fragment_products"
         tools:layout="@layout/fragment_products">
-        <argument
-            android:name="category"
-            app:argType="com.muratozturk.kotlinmvvmproject.models.Categories" />
         <action
             android:id="@+id/action_productsFragment_to_productDetailFragment"
             app:destination="@id/productDetailFragment" />
+        <argument
+            android:name="category"
+            app:argType="com.muratozturk.kotlinmvvmproject.data.models.Categories" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -52,6 +52,6 @@
         tools:layout="@layout/fragment_product_detail" >
         <argument
             android:name="product"
-            app:argType="com.muratozturk.kotlinmvvmproject.models.Product" />
+            app:argType="com.muratozturk.kotlinmvvmproject.data.models.Product" />
     </dialog>
 </navigation>

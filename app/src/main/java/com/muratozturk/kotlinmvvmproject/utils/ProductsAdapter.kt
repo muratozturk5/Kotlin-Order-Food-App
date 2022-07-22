@@ -5,10 +5,9 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import com.muratozturk.kotlinmvvmproject.R
+import com.muratozturk.kotlinmvvmproject.common.applyClickShrink
 import com.muratozturk.kotlinmvvmproject.databinding.ProductCardBinding
-import com.muratozturk.kotlinmvvmproject.models.Categories
-import com.muratozturk.kotlinmvvmproject.models.Product
-import com.muratozturk.kotlinmvvmproject.services.applyClickShrink
+import com.muratozturk.kotlinmvvmproject.data.models.Product
 import com.squareup.picasso.Picasso
 
 class ProductsAdapter(private var productList: ArrayList<Product>) :

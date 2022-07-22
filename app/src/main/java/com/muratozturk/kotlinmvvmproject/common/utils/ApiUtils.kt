@@ -1,4 +1,7 @@
-package com.muratozturk.kotlinmvvmproject.network
+package com.muratozturk.kotlinmvvmproject.common.utils
+
+import com.muratozturk.kotlinmvvmproject.data.retrofit.DAOInterface
+import com.muratozturk.kotlinmvvmproject.data.retrofit.RetrofitClient
 
 class ApiUtils {
 

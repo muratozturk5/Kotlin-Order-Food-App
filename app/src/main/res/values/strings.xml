@@ -11,4 +11,5 @@
     <string name="profile">Profil</string>
     <string name="product_image_description">Ürün Resmi</string>
     <string name="add_basket">Sepete Ekle</string>
+    <string name="cancel">Kapat</string>
 </resources>

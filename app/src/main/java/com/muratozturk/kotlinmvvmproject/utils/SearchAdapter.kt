@@ -7,10 +7,10 @@ import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
 import com.muratozturk.kotlinmvvmproject.R
+import com.muratozturk.kotlinmvvmproject.common.applyClickShrink
 import com.muratozturk.kotlinmvvmproject.databinding.ProductCardBinding
-import com.muratozturk.kotlinmvvmproject.models.Categories
-import com.muratozturk.kotlinmvvmproject.models.Product
-import com.muratozturk.kotlinmvvmproject.services.applyClickShrink
+import com.muratozturk.kotlinmvvmproject.data.models.Product
+
 import com.squareup.picasso.Picasso
 
 class SearchAdapter() :
@@ -62,6 +62,10 @@ class SearchAdapter() :
         notifyDataSetChanged()
     }
 
+    fun isListSame(): Boolean {
+        return productList == productFilterList
+    }
+
     override fun getItemCount(): Int {
         return productFilterList.size
     }
@@ -96,7 +100,11 @@ class SearchAdapter() :
 
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
                 productFilterList = results?.values as ArrayList<Product>
-                notifyDataSetChanged()
+                if (isListSame().not()) {
+                    notifyDataSetChanged()
+                }
+
+
             }
         }
     }

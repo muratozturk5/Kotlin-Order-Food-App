@@ -6,8 +6,8 @@ import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import com.muratozturk.kotlinmvvmproject.R
 import com.muratozturk.kotlinmvvmproject.databinding.CategoryCardBinding
-import com.muratozturk.kotlinmvvmproject.models.Categories
-import com.muratozturk.kotlinmvvmproject.services.applyClickShrink
+import com.muratozturk.kotlinmvvmproject.data.models.Categories
+import com.muratozturk.kotlinmvvmproject.common.applyClickShrink
 import com.squareup.picasso.Picasso
 
 class CategoriesAdapter(private var kitaplarList: ArrayList<Categories>) :

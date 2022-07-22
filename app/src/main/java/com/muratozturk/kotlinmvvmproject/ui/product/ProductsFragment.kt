@@ -15,9 +15,8 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.muratozturk.kotlinmvvmproject.R
 import com.muratozturk.kotlinmvvmproject.databinding.FragmentProductsBinding
-import com.muratozturk.kotlinmvvmproject.models.Product
-import com.muratozturk.kotlinmvvmproject.repo.Repository
-import com.muratozturk.kotlinmvvmproject.ui.search.SearchFragmentDirections
+import com.muratozturk.kotlinmvvmproject.data.models.Product
+import com.muratozturk.kotlinmvvmproject.data.repo.Repository
 import com.muratozturk.kotlinmvvmproject.utils.ProductsAdapter
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
 
@@ -26,7 +25,7 @@ class ProductsFragment : Fragment(R.layout.fragment_products) {
 
 
     private val binding by viewBinding(FragmentProductsBinding::bind)
-    private val viewModel by lazy { ProductsViewModel() }
+    private val viewModel by lazy { ProductsViewModel(requireContext()) }
 
 
     private val args: ProductsFragmentArgs by navArgs()

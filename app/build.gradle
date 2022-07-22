@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
     id 'androidx.navigation.safeargs.kotlin'
 }
 
@@ -75,7 +76,9 @@ dependencies {
     // Smooth BottomBar
     implementation 'com.github.ibrahimsn98:SmoothBottomBar:1.7.9'
 
-
+    // Room
+    implementation "androidx.room:room-runtime:2.5.0-alpha02"
+    kapt "androidx.room:room-compiler:2.5.0-alpha02"
 
 
 

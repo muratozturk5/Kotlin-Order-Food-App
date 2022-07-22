@@ -1,7 +1,6 @@
 package com.muratozturk.kotlinmvvmproject.ui.search
 
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.view.inputmethod.EditorInfo
 import androidx.appcompat.app.AppCompatActivity
@@ -14,9 +13,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.muratozturk.kotlinmvvmproject.R
 import com.muratozturk.kotlinmvvmproject.databinding.FragmentSearchBinding
-import com.muratozturk.kotlinmvvmproject.models.Product
-import com.muratozturk.kotlinmvvmproject.repo.Repository
-import com.muratozturk.kotlinmvvmproject.ui.category.CategoriesFragmentDirections
+import com.muratozturk.kotlinmvvmproject.data.models.Product
+import com.muratozturk.kotlinmvvmproject.data.repo.Repository
 import com.muratozturk.kotlinmvvmproject.utils.SearchAdapter
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
 
@@ -25,7 +23,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
 
 
     private val binding by viewBinding(FragmentSearchBinding::bind)
-    private val viewModel by lazy { SearchViewModel() }
+    private val viewModel by lazy { SearchViewModel(requireContext()) }
     private val productsAdapter by lazy { SearchAdapter() }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -89,7 +87,10 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
                     }
 
                     override fun onQueryTextChange(newText: String): Boolean {
+
                         productsAdapter.filter.filter(newText)
+
+
                         return false
                     }
                 })
