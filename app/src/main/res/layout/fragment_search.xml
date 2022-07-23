@@ -7,6 +7,7 @@
     android:background="@color/background"
     tools:context=".ui.search.SearchFragment">
 
+    <include layout="@layout/error_page" />
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/shimmerLayout"

@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.muratozturk.kotlinmvvmproject.data.models.ProductsBasketRoomModel
 
-@Database(entities = [ProductsBasketRoomModel::class], version = 1)
+@Database(entities = [ProductsBasketRoomModel::class], version = 1, exportSchema = false)
 abstract class ProductsBasketRoomDatabase : RoomDatabase() {
     abstract fun productsBasketDAOInterface(): ProductsBasketDAOInterface
 
@@ -16,13 +16,16 @@ abstract class ProductsBasketRoomDatabase : RoomDatabase() {
         fun productsBasketRoomDatabase(context: Context): ProductsBasketRoomDatabase? {
 
             if (instance == null) {
-                instance = Room.databaseBuilder(
-                    context,
-                    ProductsBasketRoomDatabase::class.java,
-                    "productsbasketdatabase.db"
-                )
-                    .allowMainThreadQueries()
-                    .build()
+
+                synchronized(ProductsBasketRoomDatabase::class) {
+                    instance = Room.databaseBuilder(
+                        context,
+                        ProductsBasketRoomDatabase::class.java,
+                        "productsbasketdatabase.db"
+                    )
+                        .build()
+                }
+
             }
             return instance
         }

@@ -10,17 +10,23 @@ import com.muratozturk.kotlinmvvmproject.data.models.ProductsBasketRoomModel
 interface ProductsBasketDAOInterface {
 
     @Insert
-    fun addProductBasket(productsBasketRoomModel: ProductsBasketRoomModel)
+    suspend fun addProductBasket(productsBasketRoomModel: ProductsBasketRoomModel)
 
     @Query("SELECT * FROM productsbasketdatabase")
-    fun getProductsBasket(): List<ProductsBasketRoomModel>?
+    suspend fun getProductsBasket(): List<ProductsBasketRoomModel>?
+
+    @Query("SELECT Sum(ProductPrice) FROM productsbasketdatabase")
+    suspend fun getProductsBasketTotalAmount(): Double?
+
+    @Query("SELECT * FROM productsbasketdatabase WHERE id = :productId  LIMIT 1")
+    suspend fun getProductById(productId: Int): ProductsBasketRoomModel?
 
     @Query("DELETE FROM productsbasketdatabase WHERE id = :idInput")
-    fun deleteProductWithId(idInput: Int)
+    suspend fun deleteProductWithId(idInput: Int)
 
     @Query("DELETE FROM productsbasketdatabase")
-    fun clearBasket()
+    suspend fun clearBasket()
 
     @Query("UPDATE productsbasketdatabase SET productCount=:productCount, productPrice=:productPrice  WHERE id = :productId")
-    fun updateProductBasket(productId: Int, productCount: Int, productPrice: Double?)
+    suspend fun updateProductBasket(productId: Int, productCount: Int, productPrice: Double?)
 }

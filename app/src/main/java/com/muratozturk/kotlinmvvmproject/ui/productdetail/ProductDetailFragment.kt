@@ -4,12 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.muratozturk.kotlinmvvmproject.R
+import com.muratozturk.kotlinmvvmproject.common.showCustomToast
 import com.muratozturk.kotlinmvvmproject.data.models.ProductsBasketRoomModel
 import com.muratozturk.kotlinmvvmproject.databinding.FragmentProductDetailBinding
-import com.muratozturk.kotlinmvvmproject.ui.category.CategoriesViewModel
 import com.squareup.picasso.Picasso
 
 
@@ -59,6 +61,10 @@ class ProductDetailFragment : BottomSheetDialogFragment() {
                         productImage = product.imagePath
                     )
                 )
+                Toast(requireContext()).showCustomToast(
+                    getString(R.string.success_add_basket),
+                    requireActivity()
+                )
                 findNavController().popBackStack()
             }
         }
@@ -81,11 +87,13 @@ class ProductDetailFragment : BottomSheetDialogFragment() {
             binding.productCount.text = count.toString()
             updatePrice()
         }
-
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
+
+
 }

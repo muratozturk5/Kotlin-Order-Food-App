@@ -3,6 +3,8 @@ package com.muratozturk.kotlinmvvmproject.ui.search
 import android.os.Bundle
 import android.view.*
 import android.view.inputmethod.EditorInfo
+import android.widget.Button
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuHost
@@ -15,7 +17,6 @@ import com.muratozturk.kotlinmvvmproject.R
 import com.muratozturk.kotlinmvvmproject.databinding.FragmentSearchBinding
 import com.muratozturk.kotlinmvvmproject.data.models.Product
 import com.muratozturk.kotlinmvvmproject.data.repo.Repository
-import com.muratozturk.kotlinmvvmproject.utils.SearchAdapter
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
 
 
@@ -32,44 +33,24 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
             resources.getString(R.string.search_product)
         (activity as AppCompatActivity?)!!.supportActionBar!!.setDisplayHomeAsUpEnabled(false)
 
-        viewModel.getSearch()
+        val tryAgain: Button = requireActivity().findViewById<View>(R.id.tryAgain) as Button
 
-        viewModel.isLoading.observe(viewLifecycleOwner) {
-            when (it!!) {
-                Repository.LOADING.LOADING -> {
-                    binding.shimmerLayout.startShimmer()
-                }
-                Repository.LOADING.DONE -> {
-                    binding.shimmerLayout.apply {
-                        stopShimmer()
-                        visibility = View.GONE
-                    }
-                    binding.productsRecyclerView.visibility = View.VISIBLE
-                }
 
-                Repository.LOADING.ERROR -> {
-                    binding.shimmerLayout.apply {
-                        stopShimmer()
-                        visibility = View.GONE
-                    }
-                    binding.productsRecyclerView.visibility = View.VISIBLE
+        binding.apply {
+            viewModel.apply {
+                getSearch()
+                initObservers()
+                tryAgain.setOnClickListener {
+                    getSearch()
                 }
             }
-
         }
 
+        initToolbarMenu()
 
-        viewModel.productList.observe(viewLifecycleOwner) { products ->
-            binding.productsRecyclerView.adapter = productsAdapter.also { adapter ->
-                adapter.updateList(products)
+    }
 
-                adapter.onClick = ::clickProduct
-            }
-        }
-        binding.productsRecyclerView.layoutManager = LinearLayoutManager(context)
-        binding.productsRecyclerView.setHasFixedSize(true)
-
-
+    private fun initToolbarMenu() {
         val menuHost: MenuHost = requireActivity()
         menuHost.addMenuProvider(object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
@@ -100,6 +81,56 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
                 return false
             }
         }, viewLifecycleOwner, Lifecycle.State.RESUMED)
+    }
+
+    private fun initObservers() {
+        binding.apply {
+            viewModel.apply {
+                val errorLayout: LinearLayout =
+                    requireView().findViewById(R.id.errorLayout)
+                isLoading.observe(viewLifecycleOwner) {
+                    when (it!!) {
+                        Repository.LOADING.LOADING -> {
+                            shimmerLayout.apply {
+                                startShimmer()
+                                visibility = View.VISIBLE
+                            }
+                            productsRecyclerView.visibility = View.GONE
+                            errorLayout.visibility = View.GONE
+                        }
+                        Repository.LOADING.DONE -> {
+                            shimmerLayout.apply {
+                                stopShimmer()
+                                visibility = View.GONE
+                            }
+                            productsRecyclerView.visibility = View.VISIBLE
+                            errorLayout.visibility = View.GONE
+                        }
+
+                        Repository.LOADING.ERROR -> {
+                            shimmerLayout.apply {
+                                stopShimmer()
+                                visibility = View.GONE
+                            }
+                            productsRecyclerView.visibility = View.GONE
+                            errorLayout.visibility = View.VISIBLE
+
+                        }
+                    }
+
+                }
+
+                productList.observe(viewLifecycleOwner) { products ->
+                    productsRecyclerView.adapter = productsAdapter.also { adapter ->
+                        adapter.updateList(products)
+
+                        adapter.onClick = ::clickProduct
+                    }
+                }
+                productsRecyclerView.layoutManager = LinearLayoutManager(context)
+                productsRecyclerView.setHasFixedSize(true)
+            }
+        }
     }
 
     private fun clickProduct(product: Product) {

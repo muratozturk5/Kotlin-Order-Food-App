@@ -5,9 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="60dp"
     android:layout_margin="@dimen/margin_small"
-    android:clickable="true"
-    android:focusable="true"
-    android:foreground="?attr/selectableItemBackground"
     app:cardCornerRadius="50dp"
     app:cardElevation="@dimen/card_elevation_small"
     app:layout_constraintBottom_toBottomOf="parent"
@@ -26,8 +23,6 @@
             android:id="@+id/materialCardView2"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:clickable="true"
-            android:focusable="true"
             app:cardCornerRadius="50dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -49,6 +44,7 @@
 
         </com.google.android.material.card.MaterialCardView>
 
+
         <TextView
             android:id="@+id/productText"
             android:layout_width="0dp"
@@ -57,12 +53,12 @@
             android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:gravity="start"
-            android:text="textView"
             android:textAllCaps="false"
             android:textColor="@color/primary"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:translationZ="90dp" />
+            android:translationZ="90dp"
+            tools:text="textView" />
 
         <TextView
             android:id="@+id/productPrice"
@@ -78,6 +74,30 @@
             android:textSize="15sp"
             android:textStyle="bold"
             android:translationZ="90dp" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/deleteBasketProduct"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginVertical="10dp"
+            android:layout_marginEnd="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardBackgroundColor="@color/red100"
+            app:cardCornerRadius="50dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:contentDescription="@string/delete"
+                android:padding="@dimen/padding_small"
+                app:srcCompat="@drawable/ic_baseline_delete_outline_24"
+                app:tint="@color/red800" />
+        </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 
 

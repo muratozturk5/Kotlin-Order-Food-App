@@ -1,4 +1,4 @@
-package com.muratozturk.kotlinmvvmproject.utils
+package com.muratozturk.kotlinmvvmproject.ui.category
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -10,7 +10,7 @@ import com.muratozturk.kotlinmvvmproject.data.models.Categories
 import com.muratozturk.kotlinmvvmproject.common.applyClickShrink
 import com.squareup.picasso.Picasso
 
-class CategoriesAdapter(private var kitaplarList: ArrayList<Categories>) :
+class CategoriesAdapter(private var categoriesList: ArrayList<Categories>) :
     RecyclerView.Adapter<CategoriesAdapter.CategoryCardDesign>() {
 
     var onClick: (Categories) -> Unit = {}
@@ -25,18 +25,18 @@ class CategoriesAdapter(private var kitaplarList: ArrayList<Categories>) :
     }
 
     override fun onBindViewHolder(holder: CategoryCardDesign, position: Int) {
-        val kitap = kitaplarList[position]
+        val category = categoriesList[position]
 
         holder.categoryCardBinding.apply {
-            categoryText.text = kitap.name
+            categoryText.text = category.name
             Picasso.get()
-                .load("https://liwapos.com/samba.mobil/Content/" + kitap.imagePath.substring(39))
+                .load("https://liwapos.com/samba.mobil/Content/" + category.imagePath.substring(39))
                 .error(R.drawable.error)
                 .placeholder(R.drawable.loading).into(categoryImageView)
             root.applyClickShrink()
 
             root.setOnClickListener {
-                onClick(kitap)
+                onClick(category)
             }
         }
 
@@ -46,7 +46,7 @@ class CategoriesAdapter(private var kitaplarList: ArrayList<Categories>) :
     }
 
     override fun getItemCount(): Int {
-        return kitaplarList.size
+        return categoriesList.size
     }
 
 

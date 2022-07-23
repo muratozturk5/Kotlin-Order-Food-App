@@ -1,6 +1,7 @@
 package com.muratozturk.kotlinmvvmproject.data.repo
 
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.muratozturk.kotlinmvvmproject.data.models.Categories
 import com.muratozturk.kotlinmvvmproject.data.models.Product
@@ -9,6 +10,7 @@ import com.muratozturk.kotlinmvvmproject.data.models.ProductsBasketRoomModel
 import com.muratozturk.kotlinmvvmproject.data.retrofit.DAOInterface
 import com.muratozturk.kotlinmvvmproject.data.room.ProductsBasketDAOInterface
 import com.muratozturk.kotlinmvvmproject.data.room.ProductsBasketRoomDatabase
+import kotlinx.coroutines.runBlocking
 
 class Repository(context: Context) {
     enum class LOADING {
@@ -20,49 +22,68 @@ class Repository(context: Context) {
     val searchList = MutableLiveData<List<Product>>()
     val basketList = MutableLiveData<List<ProductsBasketRoomModel>>()
     val isLoading = MutableLiveData<LOADING>()
+    val basketTotalAmount = MutableLiveData<Double>()
 
     private val dif: DAOInterface = ApiUtils.getInterfaceDAO()
     private val basketDif: ProductsBasketDAOInterface? =
         ProductsBasketRoomDatabase.productsBasketRoomDatabase(context)?.productsBasketDAOInterface()
 
     suspend fun getCategories() {
-        isLoading.value = LOADING.LOADING
-        val response = dif.getCategories()
-        if (response.isSuccessful) {
-            val tempList = response.body()
-            categoriesList.value = tempList!!
-            isLoading.value = LOADING.DONE
-        } else {
+        try {
+            isLoading.value = LOADING.LOADING
+            val response = dif.getCategories()
+            if (response.isSuccessful) {
+                val tempList = response.body()
+                categoriesList.value = tempList!!
+                isLoading.value = LOADING.DONE
+            } else {
+                isLoading.value = LOADING.ERROR
+            }
+        } catch (t: Throwable) {
+            t.localizedMessage?.toString()?.let { Log.e("getCategories", it) }
             isLoading.value = LOADING.ERROR
         }
+
     }
 
     suspend fun getProducts(categoryId: Int) {
-        isLoading.value = LOADING.LOADING
-        val response = dif.getProducts(categoryId)
-        if (response.isSuccessful) {
-            val tempList = response.body()
-            productList.value = tempList!!
-            isLoading.value = LOADING.DONE
-        } else {
+        try {
+            isLoading.value = LOADING.LOADING
+            val response = dif.getProducts(categoryId)
+            if (response.isSuccessful) {
+                val tempList = response.body()
+                productList.value = tempList!!
+                isLoading.value = LOADING.DONE
+            } else {
+                isLoading.value = LOADING.ERROR
+            }
+        } catch (t: Throwable) {
+            t.localizedMessage?.toString()?.let { Log.e("getCategories", it) }
             isLoading.value = LOADING.ERROR
         }
+
     }
 
     suspend fun getSearch() {
-        isLoading.value = LOADING.LOADING
-        val response = dif.getSearch()
-        if (response.isSuccessful) {
-            val tempList = response.body()
-            searchList.value = tempList!!
-            isLoading.value = LOADING.DONE
-        } else {
-            isLoading.value = LOADING.ERROR
+        try {
+            isLoading.value = LOADING.LOADING
+            val response = dif.getSearch()
+            if (response.isSuccessful) {
+                val tempList = response.body()
+                searchList.value = tempList!!
+                isLoading.value = LOADING.DONE
+            } else {
+                isLoading.value = LOADING.ERROR
 
+            }
+        } catch (t: Throwable) {
+            t.localizedMessage?.toString()?.let { Log.e("getCategories", it) }
+            isLoading.value = LOADING.ERROR
         }
+
     }
 
-    fun getBasket() {
+    fun getBasket() = runBlocking {
         isLoading.value = LOADING.LOADING
 
         basketDif?.getProductsBasket()?.let {
@@ -73,26 +94,42 @@ class Repository(context: Context) {
         }
     }
 
-    fun addBookToBasket(productModel: ProductsBasketRoomModel) {
-        basketDif?.getProductsBasket()?.let {
+    fun getBasketTotalAmount() = runBlocking {
 
-            if (it.equals(productModel.productId).not()) {
-                basketDif.addProductBasket(productModel)
-            } else {
-                val productCount = productModel.productCount + 1
-                val productPrice =
-                    (productModel.productPrice?.div(productModel.productCount))?.times(productCount)
-                basketDif.updateProductBasket(productModel.productId, productCount, productPrice)
-            }
-
+        if (basketDif?.getProductsBasketTotalAmount() != null) {
+            basketTotalAmount.value = basketDif.getProductsBasketTotalAmount()
+        } else {
+            basketTotalAmount.value = 0.00
         }
+
+
     }
 
-    fun deleteBookFromBasket(productId: Int) {
+    suspend fun addBookToBasket(productModel: ProductsBasketRoomModel) {
+
+        val productFromDatabase = basketDif?.getProductById(productModel.productId)
+
+        if (productFromDatabase != null) {
+            val productCount = productFromDatabase.productCount + productModel.productCount
+            val productPrice =
+                (productFromDatabase.productPrice?.div(productFromDatabase.productCount))?.times(
+                    productCount
+                )
+
+            basketDif?.updateProductBasket(productModel.productId, productCount, productPrice)
+
+        } else {
+            basketDif?.addProductBasket(productModel)
+        }
+
+
+    }
+
+    suspend fun deleteBookFromBasket(productId: Int) {
         basketDif?.deleteProductWithId(productId)
     }
 
-    fun clearBasket() {
+    suspend fun clearBasket() {
         basketDif?.clearBasket()
     }
 }

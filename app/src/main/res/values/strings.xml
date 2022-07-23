@@ -12,4 +12,10 @@
     <string name="product_image_description">Ürün Resmi</string>
     <string name="add_basket">Sepete Ekle</string>
     <string name="cancel">Kapat</string>
+    <string name="success_add_basket">Ürün Sepete Eklendi</string>
+    <string name="try_again">Yeniden Dene</string>
+    <string name="delete">Sil</string>
+    <string name="approve_basket">Sepeti Onayla</string>
+    <string name="go_shopping">Sipariş Ekle</string>
+    <string name="empty_basket">Sepetiniz Boş</string>
 </resources>

@@ -39,7 +39,11 @@
         android:id="@+id/basketFragment"
         android:name="com.muratozturk.kotlinmvvmproject.ui.basket.BasketFragment"
         android:label="fragment_basket"
-        tools:layout="@layout/fragment_basket" />
+        tools:layout="@layout/fragment_basket" >
+        <action
+            android:id="@+id/action_basketFragment_to_categoriesFragment"
+            app:destination="@id/categoriesFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.muratozturk.kotlinmvvmproject.ui.profile.ProfileFragment"

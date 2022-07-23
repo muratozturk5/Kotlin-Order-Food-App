@@ -1,4 +1,4 @@
-package com.muratozturk.kotlinmvvmproject.utils
+package com.muratozturk.kotlinmvvmproject.ui.product
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -27,7 +27,7 @@ class ProductsAdapter(private var productList: ArrayList<Product>) :
         return ProductsViewHolder(productCardBinding)
     }
 
-    override fun onBindViewHolder(holder: ProductsAdapter.ProductsViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ProductsViewHolder, position: Int) {
         val product = productList[position]
 
         holder.productCardBinding.apply {

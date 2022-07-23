@@ -1,4 +1,4 @@
-package com.muratozturk.kotlinmvvmproject.utils
+package com.muratozturk.kotlinmvvmproject.ui.search
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -37,7 +37,7 @@ class SearchAdapter() :
         return ProductsViewHolder(productCardBinding)
     }
 
-    override fun onBindViewHolder(holder: SearchAdapter.ProductsViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ProductsViewHolder, position: Int) {
         val product = productFilterList[position]
 
         holder.productCardBinding.apply {

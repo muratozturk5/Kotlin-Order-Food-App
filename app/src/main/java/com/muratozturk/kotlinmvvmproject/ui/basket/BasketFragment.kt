@@ -7,15 +7,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.lifecycle.Lifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.muratozturk.kotlinmvvmproject.R
-import com.muratozturk.kotlinmvvmproject.data.models.Product
 import com.muratozturk.kotlinmvvmproject.data.models.ProductsBasketRoomModel
 import com.muratozturk.kotlinmvvmproject.data.repo.Repository
 import com.muratozturk.kotlinmvvmproject.databinding.FragmentBasketBinding
-import com.muratozturk.kotlinmvvmproject.ui.category.CategoriesViewModel
-import com.muratozturk.kotlinmvvmproject.utils.BasketAdapter
-import com.muratozturk.kotlinmvvmproject.utils.ProductsAdapter
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
 
 
@@ -33,45 +30,17 @@ class BasketFragment : Fragment(R.layout.fragment_basket) {
 
         binding.apply {
             viewModel.apply {
-
                 getBasket()
-                isLoading.observe(viewLifecycleOwner) {
-                    when (it!!) {
-                        Repository.LOADING.LOADING -> {
-                            shimmerLayout.startShimmer()
-                        }
-                        Repository.LOADING.DONE -> {
-                            shimmerLayout.apply {
-                                stopShimmer()
-                                visibility = View.GONE
-                            }
-                            basketRecyclerView.visibility = View.VISIBLE
-                        }
-
-                        Repository.LOADING.ERROR -> {
-                            binding.shimmerLayout.apply {
-                                stopShimmer()
-                                visibility = View.GONE
-                            }
-                            basketRecyclerView.visibility = View.VISIBLE
-                        }
-                    }
-
-                }
-
-
-                basketList.observe(viewLifecycleOwner) { basketList ->
-                    val basketAdapter =
-                        BasketAdapter(basketList as ArrayList<ProductsBasketRoomModel>)
-                    basketRecyclerView.adapter = basketAdapter
-
-                }
-                basketRecyclerView.layoutManager = LinearLayoutManager(context)
-                basketRecyclerView.setHasFixedSize(true)
+                initObservers()
             }
 
         }
 
+        initToolbarMenu()
+
+    }
+
+    private fun initToolbarMenu() {
         val menuHost: MenuHost = requireActivity()
         menuHost.addMenuProvider(object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
@@ -86,4 +55,72 @@ class BasketFragment : Fragment(R.layout.fragment_basket) {
         }, viewLifecycleOwner, Lifecycle.State.RESUMED)
     }
 
+    private fun initObservers() {
+        binding.apply {
+            viewModel.apply {
+                isLoading.observe(viewLifecycleOwner) {
+                    when (it!!) {
+                        Repository.LOADING.LOADING -> {
+                            shimmerLayout.startShimmer()
+                        }
+                        Repository.LOADING.DONE -> {
+                            shimmerLayout.apply {
+
+                                visibility = View.GONE
+                                stopShimmer()
+                            }
+                            basketRecyclerView.visibility = View.VISIBLE
+                        }
+
+                        Repository.LOADING.ERROR -> {
+                            shimmerLayout.apply {
+                                stopShimmer()
+                                visibility = View.GONE
+                            }
+                            basketRecyclerView.visibility = View.VISIBLE
+                        }
+                    }
+
+                }
+
+                basketTotalAmount.observe(viewLifecycleOwner) { basketTotalAmount ->
+                    if (basketTotalAmount > 0.00) {
+                        totalAmount.text =
+                            String.format("%.2f", basketTotalAmount) + " ₺"
+                        approveLayout.visibility = View.VISIBLE
+                        basketRecyclerView.visibility = View.VISIBLE
+                        emptyLayout.visibility = View.GONE
+                    } else {
+                        approveLayout.visibility = View.GONE
+                        basketRecyclerView.visibility = View.GONE
+                        emptyLayout.visibility = View.VISIBLE
+                    }
+
+                }
+
+                basketList.observe(viewLifecycleOwner) { basketList ->
+                    val basketAdapter =
+                        BasketAdapter(basketList as ArrayList<ProductsBasketRoomModel>)
+                    basketRecyclerView.adapter = basketAdapter
+                    basketAdapter.onDeleteClick = ::onDeleteClick
+
+
+                    if (basketList.isNotEmpty()) {
+                        approveLayout.visibility = View.VISIBLE
+                    } else {
+                        approveLayout.visibility = View.GONE
+                    }
+
+                }
+                basketRecyclerView.layoutManager = LinearLayoutManager(context)
+                basketRecyclerView.setHasFixedSize(true)
+
+                addOrder.setOnClickListener { findNavController().navigate(BasketFragmentDirections.actionBasketFragmentToCategoriesFragment()) }
+            }
+        }
+    }
+
+    private fun onDeleteClick(productId: Int) {
+        viewModel.deleteProductFromBasket(productId)
+    }
 }

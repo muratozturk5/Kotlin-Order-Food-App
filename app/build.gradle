@@ -60,8 +60,15 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0"
+    implementation "androidx.activity:activity-ktx:1.5.0"
+
+    // LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.0"
+
     // Picasso
-    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.squareup.picasso:picasso:2.8'
 
     // One Line ViewBinding
     implementation 'com.github.Zhuinden:fragmentviewbindingdelegate-kt:1.0.0'
@@ -78,8 +85,11 @@ dependencies {
 
     // Room
     implementation "androidx.room:room-runtime:2.5.0-alpha02"
+    implementation "androidx.room:room-ktx:2.4.2"
     kapt "androidx.room:room-compiler:2.5.0-alpha02"
 
+    // Lottie
+    implementation 'com.airbnb.android:lottie:5.2.0'
 
 
 }
