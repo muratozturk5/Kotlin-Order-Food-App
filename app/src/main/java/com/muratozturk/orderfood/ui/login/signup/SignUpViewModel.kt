@@ -1,4 +1,4 @@
-package com.muratozturk.orderfood
+package com.muratozturk.orderfood.ui.login.signup
 
 import android.util.Patterns
 import androidx.lifecycle.LiveData
@@ -20,12 +20,8 @@ class SignUpViewModel : ViewModel() {
     private var _isPasswordMatch = MutableLiveData<Boolean>()
     val isPasswordMatch: LiveData<Boolean> = _isPasswordMatch
 
-    private var _isSignUp = MutableLiveData<Boolean>()
-    val isSignUp: LiveData<Boolean> = _isSignUp
+    val isSignUp: LiveData<Boolean> = usersRepo.isSignUp
 
-    init {
-        _isSignUp = usersRepo.isSignUp
-    }
 
     fun signUp(
         eMail: String,

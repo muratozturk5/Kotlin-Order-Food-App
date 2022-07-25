@@ -98,5 +98,9 @@ dependencies {
     implementation 'com.firebaseui:firebase-ui-auth:7.2.0'
     implementation 'com.google.firebase:firebase-firestore-ktx'
 
+    // Animated Bottom Bar
     implementation 'nl.joery.animatedbottombar:library:1.1.0'
+
+    // Motion Toast
+    implementation 'com.github.Spikeysanju:MotionToast:1.4'
 }

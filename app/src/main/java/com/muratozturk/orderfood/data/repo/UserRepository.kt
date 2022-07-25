@@ -20,18 +20,21 @@ class UserRepository {
     var isSignUp = MutableLiveData<Boolean>()
 
     var userInfo = MutableLiveData<UserModel>()
+    var isLoading = MutableLiveData<LOADING>()
 
     private var auth = Firebase.auth
     private val db = Firebase.firestore
 
     fun signIn(eMail: String, password: String) {
-
+        isLoading.value = LOADING.LOADING
         auth.signInWithEmailAndPassword(eMail, password).addOnCompleteListener { task ->
 
             if (task.isSuccessful) {
+                isLoading.value = LOADING.DONE
                 isSignIn.value = true
                 Log.d("SIGN_IN", "SUCCESS")
             } else {
+                isLoading.value = LOADING.ERROR
                 isSignIn.value = false
                 Log.w("SIGN_IN", "FAILURE", task.exception)
             }

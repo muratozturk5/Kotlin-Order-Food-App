@@ -1,5 +1,6 @@
 package com.muratozturk.orderfood.ui.profile
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
@@ -7,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.lifecycle.Lifecycle
+import com.muratozturk.orderfood.ui.login.LoginActivity
 import com.muratozturk.orderfood.R
 import com.muratozturk.orderfood.databinding.FragmentProfileBinding
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
@@ -30,7 +32,13 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                     phoneNumber.text = it.phoneNumber
                 }
 
-                logOut.setOnClickListener { signOut() }
+                logOut.setOnClickListener {
+                    signOut().also {
+                        val intent = Intent(requireActivity(), LoginActivity::class.java)
+                        startActivity(intent)
+                        requireActivity().finish()
+                    }
+                }
             }
         }
 

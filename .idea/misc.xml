@@ -14,6 +14,7 @@
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/drawable/ic_bank_cards.xml" value="0.355" />
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/drawable/ic_baseline_search_24_white.xml" value="0.3415" />
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/drawable/ic_cash.xml" value="0.355" />
+        <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/drawable/ic_food.xml" value="0.355" />
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/drawable/ic_remove_black_24dp.xml" value="0.354" />
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/drawable/product_radius_corner.xml" value="0.354" />
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/drawable/radius_corner.xml" value="0.3725" />
@@ -39,7 +40,7 @@
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/layout/fragment_profile.xml" value="0.48194444444444445" />
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/layout/fragment_search.xml" value="0.5421875" />
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/layout/fragment_sign_in.xml" value="0.4450619923044036" />
-        <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/layout/fragment_sign_up.xml" value="0.4450619923044036" />
+        <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/layout/fragment_sign_up.xml" value="0.5" />
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/layout/placeholder.xml" value="0.5421875" />
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/layout/product_card.xml" value="0.39739583333333334" />
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/layout/product_item.xml" value="0.5" />
@@ -47,6 +48,8 @@
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/menu-v26/search.xml" value="0.3015625" />
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/menu/menu.xml" value="0.5421875" />
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/menu/search.xml" value="0.30052083333333335" />
+        <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.355" />
+        <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.355" />
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/xml/tabs_layout.xml" value="0.2667806755023514" />
       </map>
     </option>

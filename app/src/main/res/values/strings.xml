@@ -46,4 +46,9 @@
     <string name="invalid_mail">Geçersiz Email</string>
     <string name="password_match_error">Şifreler Uyuşmuyor</string>
     <string name="registered_mail">Bu Emaile Kayıtlı Bir Kullanıcı Bulunmaktadır</string>
+    <string name="complate_not_entered_info">Tamamlanmayan Alanları Doldurunuz</string>
+    <string name="sign_up_success">Kayıt Oluşturululdu</string>
+    <string name="wrong_email_password">Kullanıcı Adı Veya Şifre Hatalı</string>
+    <string name="error">Hata !</string>
+    <string name="success">Başarılı</string>
 </resources>

@@ -1,16 +1,12 @@
-package com.muratozturk.orderfood
+package com.muratozturk.orderfood.ui.login
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.PopupMenu
-import androidx.navigation.fragment.NavHostFragment
-import androidx.viewpager2.widget.ViewPager2
-import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.muratozturk.orderfood.MainActivity
 import com.muratozturk.orderfood.databinding.ActivityLoginBinding
-import com.muratozturk.orderfood.databinding.ActivityMainBinding
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding

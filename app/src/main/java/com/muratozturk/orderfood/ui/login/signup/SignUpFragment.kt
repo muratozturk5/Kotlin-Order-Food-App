@@ -1,13 +1,16 @@
-package com.muratozturk.orderfood
+package com.muratozturk.orderfood.ui.login.signup
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import com.muratozturk.orderfood.databinding.FragmentSignInBinding
+import android.widget.Toast
+import androidx.core.content.res.ResourcesCompat
+import com.muratozturk.orderfood.R
+import com.muratozturk.orderfood.common.showCustomToast
 import com.muratozturk.orderfood.databinding.FragmentSignUpBinding
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
+import www.sanju.motiontoast.MotionToast
+import www.sanju.motiontoast.MotionToastStyle
 
 
 class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
@@ -22,10 +25,10 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
             viewModel.apply {
                 signUpButton.setOnClickListener {
                     signUp(
-                        emailEditText.toString(),
-                        passwordEditText.toString(),
-                        confirmPasswordEditText.toString(),
-                        phoneNumberEditText.toString()
+                        emailEditText.text.toString(),
+                        passwordEditText.text.toString(),
+                        confirmPasswordEditText.text.toString(),
+                        phoneNumberEditText.text.toString()
                     )
                 }
             }
@@ -41,11 +44,18 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
             with(viewModel) {
 
                 isInfosValid.observe(viewLifecycleOwner) {
-//                    if (it.not())
-//                        showSnackbar(
-//                        requireView(),
-//                        R.string.incomplete_information_entered
-//                    )
+                    if (it.not())
+
+                        MotionToast.darkToast(
+                            requireActivity(),
+                            getString(R.string.error),
+                            getString(R.string.complate_not_entered_info),
+                            MotionToastStyle.ERROR,
+                            MotionToast.GRAVITY_TOP or MotionToast.GRAVITY_CENTER,
+                            MotionToast.LONG_DURATION,
+                            ResourcesCompat.getFont(requireContext(), R.font.circular)
+                        )
+
                 }
 
                 isValidMail.observe(viewLifecycleOwner) {
@@ -68,7 +78,17 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
 
                 isSignUp.observe(viewLifecycleOwner) {
                     if (it) {
-//                        showSnackbar(requireView(), R.string.sign_up_snack_text)
+
+                        MotionToast.darkToast(
+                            requireActivity(),
+                            getString(R.string.success),
+                            getString(R.string.sign_up_success),
+                            MotionToastStyle.SUCCESS,
+                            MotionToast.GRAVITY_TOP or MotionToast.GRAVITY_CENTER,
+                            MotionToast.LONG_DURATION,
+                            ResourcesCompat.getFont(requireContext(), R.font.circular)
+                        )
+
                         clearFields()
                     } else {
                         emailInputLayout.error = getString(R.string.registered_mail)
@@ -78,15 +98,6 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
         }
     }
 
-    fun signUpButton(
-        email: String,
-        password: String,
-        confirmPassword: String,
-        nickname: String,
-        phoneNumber: String
-    ) {
-        viewModel.signUp(email, password, confirmPassword, phoneNumber)
-    }
 
     private fun clearFields() {
         with(binding) {

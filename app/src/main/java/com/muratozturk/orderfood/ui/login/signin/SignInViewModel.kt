@@ -1,4 +1,4 @@
-package com.muratozturk.orderfood
+package com.muratozturk.orderfood.ui.login.signin
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,14 +8,9 @@ import com.muratozturk.orderfood.data.repo.UserRepository
 class SignInViewModel : ViewModel() {
 
     private var usersRepo = UserRepository()
+    val isSignIn: LiveData<Boolean> = usersRepo.isSignIn
+    val isLoading: LiveData<UserRepository.LOADING> = usersRepo.isLoading
 
-    private var _isSignIn = MutableLiveData<Boolean>()
-    val isSignIn: LiveData<Boolean>
-        get() = _isSignIn
-
-    init {
-        _isSignIn = usersRepo.isSignIn
-    }
 
     fun signIn(eMail: String, password: String) {
         usersRepo.signIn(eMail, password)
