@@ -30,7 +30,7 @@
         android:id="@+id/searchFragment"
         android:name="com.muratozturk.kotlinmvvmproject.ui.search.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" >
+        tools:layout="@layout/fragment_search">
         <action
             android:id="@+id/action_searchFragment_to_productDetailFragment"
             app:destination="@id/productDetailFragment" />
@@ -39,10 +39,13 @@
         android:id="@+id/basketFragment"
         android:name="com.muratozturk.kotlinmvvmproject.ui.basket.BasketFragment"
         android:label="fragment_basket"
-        tools:layout="@layout/fragment_basket" >
+        tools:layout="@layout/fragment_basket">
         <action
             android:id="@+id/action_basketFragment_to_categoriesFragment"
             app:destination="@id/categoriesFragment" />
+        <action
+            android:id="@+id/action_basketFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -53,9 +56,22 @@
         android:id="@+id/productDetailFragment"
         android:name="com.muratozturk.kotlinmvvmproject.ui.productdetail.ProductDetailFragment"
         android:label="fragment_product_detail"
-        tools:layout="@layout/fragment_product_detail" >
+        tools:layout="@layout/fragment_product_detail">
         <argument
             android:name="product"
             app:argType="com.muratozturk.kotlinmvvmproject.data.models.Product" />
+    </dialog>
+    <dialog
+        android:id="@+id/paymentFragment"
+        android:name="com.muratozturk.kotlinmvvmproject.ui.payment.PaymentFragment"
+        android:label="fragment_payment"
+        tools:layout="@layout/fragment_payment">
+        <action
+            android:id="@+id/action_paymentFragment_to_categoriesFragment"
+            app:destination="@id/categoriesFragment" />
+        <argument
+            android:name="totalPrice"
+            app:argType="float"
+            android:defaultValue="0" />
     </dialog>
 </navigation>

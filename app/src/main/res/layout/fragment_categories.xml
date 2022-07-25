@@ -7,7 +7,9 @@
     android:background="@color/background"
     tools:context=".ui.category.CategoriesFragment">
 
-    <include layout="@layout/error_page" />
+    <include
+        layout="@layout/error_page"
+        tools:visibility="gone" />
 
 
     <com.facebook.shimmer.ShimmerFrameLayout

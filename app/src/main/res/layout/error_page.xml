@@ -34,7 +34,7 @@
         android:background="@drawable/rounded_bg2"
         android:text="@string/try_again"
         android:textAllCaps="false"
-        android:textColor="@color/white"
+        android:textColor="@color/primary"
         android:textSize="15sp"
         android:textStyle="bold"
         app:rippleColor="@color/white" />

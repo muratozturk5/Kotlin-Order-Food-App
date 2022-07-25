@@ -8,7 +8,7 @@
     android:orientation="vertical"
     tools:context=".ui.productdetail.ProductDetailFragment">
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
@@ -16,7 +16,9 @@
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="20dp"
         app:cardElevation="5dp"
-        app:cardUseCompatPadding="true">
+        app:cardUseCompatPadding="true"
+        app:strokeColor="@color/primary"
+        app:strokeWidth="2dp">
 
 
         <LinearLayout
@@ -56,10 +58,10 @@
             </LinearLayout>
 
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
@@ -67,7 +69,9 @@
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="20dp"
         app:cardElevation="5dp"
-        app:cardUseCompatPadding="true">
+        app:cardUseCompatPadding="true"
+        app:strokeColor="@color/primary"
+        app:strokeWidth="2dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -83,59 +87,70 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/decrease"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardBackgroundColor="@color/red100"
+                    app:cardCornerRadius="50dp"
+                    app:strokeColor="@color/red800"
+                    app:strokeWidth="2dp">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/delete"
+                        android:padding="2dp"
+                        app:srcCompat="@drawable/ic_remove_black_24dp"
+                        app:tint="@color/red800" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/productCount"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:background="@drawable/rounded_btn"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toTopOf="parent">
+                    android:autoSizeMaxTextSize="25sp"
+                    android:autoSizeTextType="uniform"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:padding="5dp"
+                    android:text="1"
+                    android:textAlignment="center"
+                    android:textColor="@color/primary"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/increase"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardBackgroundColor="@color/green100"
+                    app:cardCornerRadius="50dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:strokeColor="@color/green800"
+                    app:strokeWidth="2dp">
 
                     <ImageView
-                        android:id="@+id/decrease"
-                        android:layout_width="50dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:layout_margin="3dp"
-                        android:src="@drawable/ic_remove_black_24dp" />
-
-                    <View
-                        android:layout_width="2dp"
-                        android:layout_height="match_parent"
-                        android:background="@color/primary" />
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/productCount"
-                        android:layout_width="80dp"
+                        android:layout_width="35dp"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
-                        android:autoSizeMaxTextSize="25sp"
-                        android:autoSizeTextType="uniform"
-                        android:gravity="center"
-                        android:maxLines="1"
-                        android:padding="5dp"
-                        android:text="1"
-                        android:textAlignment="center"
-                        android:textColor="@color/primary"
-                        android:textSize="25sp"
-                        android:textStyle="bold" />
-
-                    <View
-                        android:layout_width="2dp"
-                        android:layout_height="match_parent"
-                        android:background="@color/primary" />
-
-                    <ImageView
-                        android:id="@+id/increase"
-                        android:layout_width="50dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:layout_margin="3dp"
-                        android:src="@drawable/ic_add_black_24dp" />
-
-                </LinearLayout>
+                        android:contentDescription="@string/delete"
+                        android:padding="2dp"
+                        app:srcCompat="@drawable/ic_add_black_24dp"
+                        app:tint="@color/green800" />
+                </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -149,6 +164,7 @@
                 android:gravity="right|center_vertical"
                 android:maxLines="1"
                 android:paddingLeft="5dp"
+                android:paddingEnd="10dp"
                 android:textColor="@color/primary"
                 android:textSize="25sp"
                 android:textStyle="bold"
@@ -158,9 +174,9 @@
         </LinearLayout>
 
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -172,7 +188,9 @@
         app:cardUseCompatPadding="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:strokeColor="@color/primary"
+        app:strokeWidth="2dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -180,38 +198,36 @@
             android:layout_gravity="bottom|center"
             android:gravity="bottom"
             android:orientation="horizontal"
-            android:padding="7dp">
+            android:weightSum="2">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/cancel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_marginEnd="5dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="7dp"
                 android:layout_weight="1"
                 android:background="@drawable/rounded_bg3"
                 android:text="@string/cancel"
                 android:textAllCaps="false"
-                android:textColor="@color/white"
+                android:textColor="@color/primary"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/addToBasket"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_marginStart="5dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="7dp"
                 android:layout_weight="1"
                 android:background="@drawable/rounded_bg2"
                 android:text="@string/add_basket"
                 android:textAllCaps="false"
-                android:textColor="@color/white"
+                android:textColor="@color/primary"
                 android:textSize="15sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
 
 </LinearLayout>

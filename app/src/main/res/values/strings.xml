@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">KotlinMVVMProject</string>
+    <string name="app_name">Order Food</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="products">Ürünler</string>
@@ -18,4 +18,21 @@
     <string name="approve_basket">Sepeti Onayla</string>
     <string name="go_shopping">Sipariş Ekle</string>
     <string name="empty_basket">Sepetiniz Boş</string>
+    <string name="payment_screen">Ödeme Ekranı</string>
+    <string name="type_order_note">Sipariş Notu</string>
+    <string name="dont_knock">Zili Çalma</string>
+    <string name="order_note_hint">Sipariş Notu Giriniz</string>
+    <string name="address">Adres</string>
+    <string name="order_address">Adres Giriniz</string>
+    <string name="payment_type">Ödeme Tipi</string>
+    <string name="orderNow">Siparişi Tamamla</string>
+    <string name="close">Kapat</string>
+    <string name="order_approved">Siparişiniz Alındı</string>
+    <string name="we_will_send_info">Siparişiniz ile ilgili bilgileri en kısa sürede size ileteceğiz</string>
+    <string name="okay">Tamam</string>
+    <string name="paymeny_summary">Ödeme Tutarı</string>
+    <string name="order_amount">Sipariş Tutarı</string>
+    <string name="discount_amount">İndirim Tutarı</string>
+    <string name="payment_total_amount">Ödenecek Tutar</string>
+    <string name="address_error">Adres Boş Geçilemez</string>
 </resources>

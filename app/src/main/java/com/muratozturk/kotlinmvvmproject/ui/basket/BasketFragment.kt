@@ -20,7 +20,7 @@ class BasketFragment : Fragment(R.layout.fragment_basket) {
 
     private val binding by viewBinding(FragmentBasketBinding::bind)
     private val viewModel by lazy { BasketViewModel(requireContext()) }
-
+    private var basketAmount: Double = 0.0
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity?)!!.supportActionBar!!.title =
@@ -96,6 +96,8 @@ class BasketFragment : Fragment(R.layout.fragment_basket) {
                         emptyLayout.visibility = View.VISIBLE
                     }
 
+                    basketAmount = basketTotalAmount
+
                 }
 
                 basketList.observe(viewLifecycleOwner) { basketList ->
@@ -116,6 +118,11 @@ class BasketFragment : Fragment(R.layout.fragment_basket) {
                 basketRecyclerView.setHasFixedSize(true)
 
                 addOrder.setOnClickListener { findNavController().navigate(BasketFragmentDirections.actionBasketFragmentToCategoriesFragment()) }
+                approveBasket.setOnClickListener {
+                    findNavController().navigate(
+                        BasketFragmentDirections.actionBasketFragmentToPaymentFragment(basketAmount.toFloat())
+                    )
+                }
             }
         }
     }

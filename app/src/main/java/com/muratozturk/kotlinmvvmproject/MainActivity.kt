@@ -40,6 +40,14 @@ class MainActivity : AppCompatActivity() {
         popupMenu.inflate(R.menu.menu)
         val menu = popupMenu.menu
         binding.navigationView.setupWithNavController(menu, navHostFragment.navController)
+
+//        navHostFragment.navController.addOnDestinationChangedListener { _, destination, _ ->
+//            if (destination.id == R.id.paymentFragment) {
+//                binding.navigationView.visibility = View.GONE
+//            } else {
+//                binding.navigationView.visibility = View.VISIBLE
+//            }
+//        }
     }
 
 }
