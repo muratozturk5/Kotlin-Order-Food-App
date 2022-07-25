@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+
+    <nl.joery.animatedbottombar.AnimatedBottomBar
+        android:id="@+id/tabBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary"
+        app:abb_animationInterpolator="@android:anim/overshoot_interpolator"
+        app:abb_badgeBackgroundColor="@color/white"
+        app:abb_badgeTextColor="@color/white"
+        app:abb_iconSize="30dp"
+        app:abb_indicatorAppearance="round"
+        app:abb_indicatorColor="@color/secondary"
+        app:abb_indicatorHeight="5dp"
+        app:abb_indicatorLocation="bottom"
+        app:abb_indicatorMargin="16dp"
+        app:abb_selectedIndex="0"
+        app:abb_selectedTabType="icon"
+        app:abb_tabColor="@color/white"
+        app:abb_tabColorSelected="@color/white"
+        app:abb_tabs="@menu/tabs"
+        app:abb_textAppearance="@style/CustomText"
+        app:abb_textSize="16sp"
+        app:abb_textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tabBar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

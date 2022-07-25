@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/categoriesFragment"
-        android:name="com.muratozturk.kotlinmvvmproject.ui.category.CategoriesFragment"
+        android:name="com.muratozturk.orderfood.ui.category.CategoriesFragment"
         android:label="fragment_categories"
         tools:layout="@layout/fragment_categories">
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/productsFragment"
-        android:name="com.muratozturk.kotlinmvvmproject.ui.product.ProductsFragment"
+        android:name="com.muratozturk.orderfood.ui.product.ProductsFragment"
         android:label="fragment_products"
         tools:layout="@layout/fragment_products">
         <action
@@ -24,11 +24,11 @@
             app:destination="@id/productDetailFragment" />
         <argument
             android:name="category"
-            app:argType="com.muratozturk.kotlinmvvmproject.data.models.Categories" />
+            app:argType="com.muratozturk.orderfood.data.models.Categories" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.muratozturk.kotlinmvvmproject.ui.search.SearchFragment"
+        android:name="com.muratozturk.orderfood.ui.search.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search">
         <action
@@ -37,7 +37,7 @@
     </fragment>
     <fragment
         android:id="@+id/basketFragment"
-        android:name="com.muratozturk.kotlinmvvmproject.ui.basket.BasketFragment"
+        android:name="com.muratozturk.orderfood.ui.basket.BasketFragment"
         android:label="fragment_basket"
         tools:layout="@layout/fragment_basket">
         <action
@@ -49,21 +49,21 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.muratozturk.kotlinmvvmproject.ui.profile.ProfileFragment"
+        android:name="com.muratozturk.orderfood.ui.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <dialog
         android:id="@+id/productDetailFragment"
-        android:name="com.muratozturk.kotlinmvvmproject.ui.productdetail.ProductDetailFragment"
+        android:name="com.muratozturk.orderfood.ui.productdetail.ProductDetailFragment"
         android:label="fragment_product_detail"
         tools:layout="@layout/fragment_product_detail">
         <argument
             android:name="product"
-            app:argType="com.muratozturk.kotlinmvvmproject.data.models.Product" />
+            app:argType="com.muratozturk.orderfood.data.models.Product" />
     </dialog>
     <dialog
         android:id="@+id/paymentFragment"
-        android:name="com.muratozturk.kotlinmvvmproject.ui.payment.PaymentFragment"
+        android:name="com.muratozturk.orderfood.ui.payment.PaymentFragment"
         android:label="fragment_payment"
         tools:layout="@layout/fragment_payment">
         <action

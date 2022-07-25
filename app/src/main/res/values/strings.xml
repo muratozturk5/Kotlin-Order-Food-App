@@ -35,4 +35,15 @@
     <string name="discount_amount">İndirim Tutarı</string>
     <string name="payment_total_amount">Ödenecek Tutar</string>
     <string name="address_error">Adres Boş Geçilemez</string>
+    <string name="person_image">Kullanıcı Resmi</string>
+    <string name="log_out">Çıkış Yap</string>
+    <string name="sign_in">Giriş Yap</string>
+    <string name="sign_up">Kayıt Ol</string>
+    <string name="e_mail_hint">Email</string>
+    <string name="password_hint">Şifre</string>
+    <string name="phone_number_hint">Telefon Numarası</string>
+    <string name="confirm_password_hint">Şifre Doğrula</string>
+    <string name="invalid_mail">Geçersiz Email</string>
+    <string name="password_match_error">Şifreler Uyuşmuyor</string>
+    <string name="registered_mail">Bu Emaile Kayıtlı Bir Kullanıcı Bulunmaktadır</string>
 </resources>
