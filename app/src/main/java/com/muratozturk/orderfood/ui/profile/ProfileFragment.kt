@@ -10,6 +10,7 @@ import androidx.core.view.MenuProvider
 import androidx.lifecycle.Lifecycle
 import com.muratozturk.orderfood.ui.login.LoginActivity
 import com.muratozturk.orderfood.R
+import com.muratozturk.orderfood.data.repo.UserRepository
 import com.muratozturk.orderfood.databinding.FragmentProfileBinding
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
 
@@ -27,11 +28,9 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
         binding.apply {
             viewModel.apply {
-                userInfo.observe(viewLifecycleOwner) {
-                    email.text = it.email
-                    phoneNumber.text = it.phoneNumber
-                }
 
+                initObservers()
+                
                 logOut.setOnClickListener {
                     signOut().also {
                         val intent = Intent(requireActivity(), LoginActivity::class.java)
@@ -43,6 +42,39 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         }
 
         initToolbarMenu()
+    }
+
+    private fun initObservers() {
+        binding.apply {
+            viewModel.apply {
+
+                userInfo.observe(viewLifecycleOwner) {
+                    email.text = it.email
+                    phoneNumber.text = it.phoneNumber
+                }
+
+                isLoading.observe(viewLifecycleOwner) {
+                    when (it!!) {
+                        UserRepository.LOADING.LOADING -> {
+                            logOut.startAnimation()
+                        }
+                        UserRepository.LOADING.DONE -> {
+
+                            logOut.revertAnimation {
+                                logOut.setBackgroundResource(R.drawable.rounded_bg3)
+                            }
+                        }
+
+                        UserRepository.LOADING.ERROR -> {
+                            logOut.revertAnimation {
+                                logOut.setBackgroundResource(R.drawable.rounded_bg3)
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
     }
 
     private fun initToolbarMenu() {

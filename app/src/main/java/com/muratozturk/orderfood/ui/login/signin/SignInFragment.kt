@@ -1,15 +1,13 @@
 package com.muratozturk.orderfood.ui.login.signin
 
+
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.View
-import android.widget.Toast
 import androidx.core.content.res.ResourcesCompat
-import com.muratozturk.orderfood.MainActivity
+import androidx.fragment.app.Fragment
+import com.muratozturk.orderfood.ui.MainActivity
 import com.muratozturk.orderfood.R
-import com.muratozturk.orderfood.common.showCustomToast
-import com.muratozturk.orderfood.data.repo.Repository
 import com.muratozturk.orderfood.data.repo.UserRepository
 import com.muratozturk.orderfood.databinding.FragmentSignInBinding
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
@@ -26,17 +24,38 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
         binding.apply {
             viewModel.apply {
 
+                initObservers()
+                btnSignIn.setOnClickListener {
+                    signIn(
+                        emailEditText.text.toString(),
+                        passwordEditText.text.toString()
+                    )
+                }
+            }
+
+        }
+
+    }
+
+    private fun initObservers() {
+        binding.apply {
+            viewModel.apply {
                 isLoading.observe(viewLifecycleOwner) {
                     when (it!!) {
                         UserRepository.LOADING.LOADING -> {
-
+                            btnSignIn.startAnimation()
                         }
                         UserRepository.LOADING.DONE -> {
 
+                            btnSignIn.revertAnimation {
+                                btnSignIn.setBackgroundResource(R.drawable.rounded_bg3)
+                            }
                         }
 
                         UserRepository.LOADING.ERROR -> {
-
+                            btnSignIn.revertAnimation {
+                                btnSignIn.setBackgroundResource(R.drawable.rounded_bg3)
+                            }
                         }
                     }
 
@@ -44,15 +63,21 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
 
                 isSignIn.observe(viewLifecycleOwner) {
                     if (it) {
+                        MotionToast.createColorToast(
+                            requireActivity(),
+                            getString(R.string.success),
+                            getString(R.string.login_success),
+                            MotionToastStyle.SUCCESS,
+                            MotionToast.GRAVITY_TOP or MotionToast.GRAVITY_CENTER,
+                            MotionToast.LONG_DURATION,
+                            ResourcesCompat.getFont(requireContext(), R.font.circular)
+                        )
+
                         val intent = Intent(context, MainActivity::class.java)
                         startActivity(intent)
+                        requireActivity().finish()
                     } else {
-//                        Toast(requireContext()).showCustomToast(
-//                            getString(R.string.wrong_email_password),
-//                            requireActivity()
-//                        )
-
-                        MotionToast.darkToast(
+                        MotionToast.createColorToast(
                             requireActivity(),
                             getString(R.string.error),
                             getString(R.string.wrong_email_password),
@@ -65,15 +90,30 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
 
                 }
 
-                btnSignIn.setOnClickListener {
-                    signIn(
-                        emailEditText.text.toString(),
-                        passwordEditText.text.toString()
-                    )
+                isValidMail.observe(viewLifecycleOwner) {
+                    if (it.not()) {
+                        emailInputLayout.error = getString(R.string.invalid_mail)
+                    } else {
+                        emailInputLayout.error = ""
+                    }
+                }
+
+                isInfosValid.observe(viewLifecycleOwner) {
+                    if (it.not())
+
+                        MotionToast.createColorToast(
+                            requireActivity(),
+                            getString(R.string.error),
+                            getString(R.string.complate_not_entered_info),
+                            MotionToastStyle.ERROR,
+                            MotionToast.GRAVITY_TOP or MotionToast.GRAVITY_CENTER,
+                            MotionToast.LONG_DURATION,
+                            ResourcesCompat.getFont(requireContext(), R.font.circular)
+                        )
+
                 }
             }
-
         }
-
     }
+
 }

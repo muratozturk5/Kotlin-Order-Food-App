@@ -51,4 +51,6 @@
     <string name="wrong_email_password">Kullanıcı Adı Veya Şifre Hatalı</string>
     <string name="error">Hata !</string>
     <string name="success">Başarılı</string>
+    <string name="login_success">Giriş Başarılı</string>
+    <string name="six_char_error">Şifre en az 6 karakterden oluşmalıdır</string>
 </resources>

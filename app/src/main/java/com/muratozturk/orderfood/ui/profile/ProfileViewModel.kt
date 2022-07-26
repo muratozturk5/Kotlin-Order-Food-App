@@ -12,6 +12,8 @@ class ProfileViewModel : ViewModel() {
     val userInfo: LiveData<UserModel>
         get() = usersRepo.userInfo
 
+    val isLoading: LiveData<UserRepository.LOADING> = usersRepo.isLoading
+
     init {
         getUserInfo()
     }

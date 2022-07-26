@@ -42,7 +42,7 @@ class UserRepository {
     }
 
     fun signUp(eMail: String, password: String, phoneNumber: String) {
-
+        isLoading.value = LOADING.LOADING
         auth.createUserWithEmailAndPassword(eMail, password).addOnCompleteListener { task ->
 
             if (task.isSuccessful) {
@@ -59,22 +59,26 @@ class UserRepository {
                         .set(user)
                         .addOnSuccessListener {
                             isSignUp.value = true
+                            isLoading.value = LOADING.DONE
                             Log.d("SIGN_UP", "SUCCESS")
                         }
                         .addOnFailureListener { e ->
                             isSignUp.value = false
+                            isLoading.value = LOADING.ERROR
                             Log.w("SIGN_UP", "FAILURE", e)
                         }
                 }
 
             } else {
                 isSignUp.value = false
+                isLoading.value = LOADING.ERROR
                 Log.w("SIGN_UP", "FAILURE", task.exception)
             }
         }
     }
 
     fun getUserInfo() {
+        isLoading.value = LOADING.LOADING
         auth.currentUser?.let { user ->
 
             val docRef = db.collection("users").document(user.uid)
@@ -85,15 +89,19 @@ class UserRepository {
                             user.email,
                             document.get("phonenumber") as String
                         )
+                        isLoading.value = LOADING.DONE
                     }
                 }
                 .addOnFailureListener { exception ->
                     Log.d(ContentValues.TAG, "get failed with ", exception)
+                    isLoading.value = LOADING.ERROR
                 }
         }
     }
 
     fun signOut() {
+        isLoading.value = LOADING.LOADING
         auth.signOut()
+        isLoading.value = LOADING.DONE
     }
 }

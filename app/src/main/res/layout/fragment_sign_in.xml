@@ -87,20 +87,20 @@
                 android:textColorHint="@color/primary" />
         </com.google.android.material.textfield.TextInputLayout>
 
-
-        <androidx.appcompat.widget.AppCompatButton
+        <com.apachat.loadingbutton.core.customViews.CircularProgressButton
             android:id="@+id/btn_sign_in"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="35dp"
-            android:layout_weight="1"
-            android:background="@drawable/rounded_bg3"
             android:text="@string/sign_in"
             android:textAllCaps="false"
             android:textColor="@color/primary"
             android:textSize="15sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginTop="35dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_bg3" />
+
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

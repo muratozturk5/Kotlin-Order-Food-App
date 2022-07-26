@@ -1,12 +1,13 @@
 package com.muratozturk.orderfood.ui.login.signup
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
-import android.widget.Toast
 import androidx.core.content.res.ResourcesCompat
+import com.muratozturk.orderfood.ui.MainActivity
 import com.muratozturk.orderfood.R
-import com.muratozturk.orderfood.common.showCustomToast
+import com.muratozturk.orderfood.data.repo.UserRepository
 import com.muratozturk.orderfood.databinding.FragmentSignUpBinding
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
 import www.sanju.motiontoast.MotionToast
@@ -31,10 +32,12 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
                         phoneNumberEditText.text.toString()
                     )
                 }
+
+                initObservers()
             }
         }
 
-        initObservers()
+
     }
 
     private fun initObservers() {
@@ -43,18 +46,46 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
 
             with(viewModel) {
 
-                isInfosValid.observe(viewLifecycleOwner) {
-                    if (it.not())
 
-                        MotionToast.darkToast(
-                            requireActivity(),
-                            getString(R.string.error),
-                            getString(R.string.complate_not_entered_info),
-                            MotionToastStyle.ERROR,
-                            MotionToast.GRAVITY_TOP or MotionToast.GRAVITY_CENTER,
-                            MotionToast.LONG_DURATION,
-                            ResourcesCompat.getFont(requireContext(), R.font.circular)
-                        )
+                isLoading.observe(viewLifecycleOwner) {
+                    when (it!!) {
+                        UserRepository.LOADING.LOADING -> {
+                            signUpButton.startAnimation()
+                        }
+                        UserRepository.LOADING.DONE -> {
+
+                            signUpButton.revertAnimation {
+                                signUpButton.setBackgroundResource(R.drawable.rounded_bg3)
+                            }
+                        }
+
+                        UserRepository.LOADING.ERROR -> {
+                            signUpButton.revertAnimation {
+                                signUpButton.setBackgroundResource(R.drawable.rounded_bg3)
+                            }
+                        }
+                    }
+
+                }
+
+                isPasswordSixChar.observe(viewLifecycleOwner) {
+                    if (it.not()) {
+                        passwordInputLayout.error = getString(R.string.six_char_error)
+                    } else {
+                        passwordInputLayout.error = ""
+                    }
+                }
+
+                isInfosValid.observe(viewLifecycleOwner) {
+                    if (it.not()) MotionToast.createColorToast(
+                        requireActivity(),
+                        getString(R.string.error),
+                        getString(R.string.complate_not_entered_info),
+                        MotionToastStyle.ERROR,
+                        MotionToast.GRAVITY_TOP or MotionToast.GRAVITY_CENTER,
+                        MotionToast.LONG_DURATION,
+                        ResourcesCompat.getFont(requireContext(), R.font.circular)
+                    )
 
                 }
 
@@ -79,7 +110,7 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
                 isSignUp.observe(viewLifecycleOwner) {
                     if (it) {
 
-                        MotionToast.darkToast(
+                        MotionToast.createColorToast(
                             requireActivity(),
                             getString(R.string.success),
                             getString(R.string.sign_up_success),
@@ -90,6 +121,10 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
                         )
 
                         clearFields()
+
+                        val intent = Intent(context, MainActivity::class.java)
+                        startActivity(intent)
+                        requireActivity().finish()
                     } else {
                         emailInputLayout.error = getString(R.string.registered_mail)
                     }

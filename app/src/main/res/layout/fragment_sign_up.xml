@@ -24,6 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
@@ -63,7 +64,6 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="@dimen/margin_very_small"
             android:textColorHint="@color/primary"
             app:boxCornerRadiusBottomEnd="20dp"
             app:boxCornerRadiusBottomStart="20dp"
@@ -155,7 +155,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.apachat.loadingbutton.core.customViews.CircularProgressButton
             android:id="@+id/signUpButton"
             android:layout_width="match_parent"
             android:layout_height="0dp"
