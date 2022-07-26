@@ -15,7 +15,7 @@ class SpinnerAdapter(
     var namesList: ArrayList<String>
 ) :
     BaseAdapter() {
-    var inflter: LayoutInflater
+    var inflter: LayoutInflater = LayoutInflater.from(context)
     override fun getCount(): Int {
         return imagesList.size
     }
@@ -29,9 +29,8 @@ class SpinnerAdapter(
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        var view = convertView
-        view = inflter.inflate(R.layout.custom_spinner_items, null)
-        val icon = view.findViewById<View>(R.id.imageView) as ImageView
+        val view: View? = inflter.inflate(R.layout.custom_spinner_items, null)
+        val icon = view?.findViewById<View>(R.id.imageView) as ImageView
         val names = view.findViewById<View>(R.id.textView) as TextView
 
         icon.setImageResource(imagesList[position])
@@ -39,7 +38,4 @@ class SpinnerAdapter(
         return view
     }
 
-    init {
-        inflter = LayoutInflater.from(context)
-    }
 }

@@ -8,14 +8,14 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.muratozturk.orderfood.R
+import com.muratozturk.orderfood.common.loadImage
+import com.muratozturk.orderfood.common.formatPrice
 import com.muratozturk.orderfood.common.showCustomToast
 import com.muratozturk.orderfood.data.models.ProductsBasketRoomModel
 import com.muratozturk.orderfood.databinding.FragmentProductDetailBinding
-import com.squareup.picasso.Picasso
 
 
 class ProductDetailFragment : BottomSheetDialogFragment() {
@@ -36,22 +36,10 @@ class ProductDetailFragment : BottomSheetDialogFragment() {
         _binding = FragmentProductDetailBinding.inflate(inflater, container, false)
         return binding.root
     }
+
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
-        val dialog = BottomSheetDialog(requireContext(), R.style.AppBottomSheetDialogTheme)
-        dialog.setOnShowListener {
-
-            val bottomSheetDialog = it as BottomSheetDialog
-            val parentLayout =
-                bottomSheetDialog.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
-            parentLayout?.let { it ->
-                val behaviour = BottomSheetBehavior.from(it)
-//                setupFullHeight(it)
-//                behaviour.state = BottomSheetBehavior.STATE_EXPANDED
-//                behaviour.skipCollapsed = true
-            }
-        }
-        return dialog
+        return BottomSheetDialog(requireContext(), R.style.AppBottomSheetDialogTheme)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -59,10 +47,7 @@ class ProductDetailFragment : BottomSheetDialogFragment() {
         val product = args.product
 
         binding.apply {
-            Picasso.get()
-                .load("https://liwapos.com/samba.mobil/Content/" + product.imagePath?.substring(39))
-                .into(productImage)
-
+            productImage.loadImage(product.imagePath?.substring(39).toString())
             totalPrice = product.price
             price = product.price
             productName.text = product.name
@@ -92,7 +77,7 @@ class ProductDetailFragment : BottomSheetDialogFragment() {
 
     private fun updatePrice() {
         totalPrice = count * price!!
-        binding.productPrice.text = String.format("%.2f", totalPrice) + " ₺"
+        binding.productPrice.text = totalPrice!!.formatPrice()
     }
 
     private fun increaseCount() {
@@ -113,7 +98,6 @@ class ProductDetailFragment : BottomSheetDialogFragment() {
         super.onDestroyView()
         _binding = null
     }
-
 
 
 }

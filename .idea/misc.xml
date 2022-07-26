@@ -8,13 +8,27 @@
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/drawable/bottom_sheet_line.xml" value="0.354" />
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/drawable/cardedge2.xml" value="0.354" />
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/drawable/category_background.xml" value="0.256" />
+        <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/drawable/custom_edittext.xml" value="0.355" />
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/drawable/custom_rounded_toast_bg.xml" value="0.354" />
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/drawable/dialog_bg.xml" value="0.355" />
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/drawable/ic_add_black_24dp.xml" value="0.354" />
+        <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/drawable/ic_app_logo.xml" value="0.355" />
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/drawable/ic_bank_cards.xml" value="0.355" />
+        <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/drawable/ic_baseline_check_circle_24.xml" value="0.355" />
+        <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.355" />
+        <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/drawable/ic_baseline_delete_outline_24.xml" value="0.355" />
+        <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.355" />
+        <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/drawable/ic_baseline_fastfood_24.xml" value="0.355" />
+        <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.355" />
+        <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/drawable/ic_baseline_login_24.xml" value="0.355" />
+        <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/drawable/ic_baseline_logout_24.xml" value="0.355" />
+        <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/drawable/ic_baseline_person_add_alt_1_24.xml" value="0.355" />
+        <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/drawable/ic_baseline_phone_24.xml" value="0.355" />
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/drawable/ic_baseline_search_24_white.xml" value="0.3415" />
+        <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/drawable/ic_baseline_shopping_basket_24.xml" value="0.355" />
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/drawable/ic_cash.xml" value="0.355" />
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/drawable/ic_food.xml" value="0.355" />
+        <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/drawable/ic_launcher_background.xml" value="0.355" />
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/drawable/ic_remove_black_24dp.xml" value="0.354" />
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/drawable/product_radius_corner.xml" value="0.354" />
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/drawable/radius_corner.xml" value="0.3725" />
@@ -26,6 +40,7 @@
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/layout-v26/fragment_product_detail.xml" value="0.39739583333333334" />
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/layout/activity_main.xml" value="0.39739583333333334" />
+        <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/layout/activity_splash.xml" value="0.3262077811030355" />
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/layout/basket_item.xml" value="0.5421875" />
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/layout/category_card.xml" value="0.5" />
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/layout/custom_spinner_items.xml" value="0.4450619923044036" />
@@ -48,6 +63,7 @@
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/menu-v26/search.xml" value="0.3015625" />
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/menu/menu.xml" value="0.5421875" />
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/menu/search.xml" value="0.30052083333333335" />
+        <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/menu/tabs.xml" value="0.3262077811030355" />
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.355" />
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.355" />
         <entry key="..\:/Users/EarthApp/Desktop/KotlinMVVMProject/app/src/main/res/xml/tabs_layout.xml" value="0.2667806755023514" />

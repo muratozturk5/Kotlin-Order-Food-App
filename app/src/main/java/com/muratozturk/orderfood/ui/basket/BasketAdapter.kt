@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import com.muratozturk.orderfood.R
+import com.muratozturk.orderfood.common.formatPrice
 import com.muratozturk.orderfood.data.models.ProductsBasketRoomModel
 import com.muratozturk.orderfood.databinding.BasketItemBinding
 
@@ -31,7 +32,7 @@ class BasketAdapter(private var basketList: ArrayList<ProductsBasketRoomModel>) 
         holder.productCardBinding.apply {
             productText.text = product.productName
             productCount.text = product.productCount.toString() + " X"
-            productPrice.text = String.format("%.2f", product.productPrice) + " ₺"
+            productPrice.text = product.productPrice?.formatPrice()
 
             deleteBasketProduct.setOnClickListener {
                 onDeleteClick(product.productId)

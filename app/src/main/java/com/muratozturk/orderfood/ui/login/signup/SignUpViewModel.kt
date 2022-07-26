@@ -11,8 +11,8 @@ class SignUpViewModel : ViewModel() {
     private var usersRepo = UserRepository()
 
 
-    private var _isInfosValid = MutableLiveData<Boolean>()
-    val isInfosValid: LiveData<Boolean> = _isInfosValid
+    private var _isInfoValid = MutableLiveData<Boolean>()
+    val isInfoValid: LiveData<Boolean> = _isInfoValid
 
     private var _isValidMail = MutableLiveData<Boolean>()
     val isValidMail: LiveData<Boolean> = _isValidMail
@@ -36,9 +36,9 @@ class SignUpViewModel : ViewModel() {
     ) {
 
         if (eMail.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || phoneNumber.isEmpty()) {
-            _isInfosValid.value = false
+            _isInfoValid.value = false
         } else {
-            _isInfosValid.value = true
+            _isInfoValid.value = true
             if (Patterns.EMAIL_ADDRESS.matcher(eMail).matches().not()) {
                 _isValidMail.value = false
             } else {

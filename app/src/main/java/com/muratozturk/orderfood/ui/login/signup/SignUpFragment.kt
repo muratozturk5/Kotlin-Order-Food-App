@@ -76,7 +76,7 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
                     }
                 }
 
-                isInfosValid.observe(viewLifecycleOwner) {
+                isInfoValid.observe(viewLifecycleOwner) {
                     if (it.not()) MotionToast.createColorToast(
                         requireActivity(),
                         getString(R.string.error),

@@ -8,6 +8,7 @@ import com.muratozturk.orderfood.R
 import com.muratozturk.orderfood.databinding.CategoryCardBinding
 import com.muratozturk.orderfood.data.models.Categories
 import com.muratozturk.orderfood.common.applyClickShrink
+import com.muratozturk.orderfood.common.loadImage
 import com.squareup.picasso.Picasso
 
 class CategoriesAdapter(private var categoriesList: ArrayList<Categories>) :
@@ -29,10 +30,7 @@ class CategoriesAdapter(private var categoriesList: ArrayList<Categories>) :
 
         holder.categoryCardBinding.apply {
             categoryText.text = category.name
-            Picasso.get()
-                .load("https://liwapos.com/samba.mobil/Content/" + category.imagePath.substring(39))
-                .error(R.drawable.error)
-                .placeholder(R.drawable.loading).into(categoryImageView)
+            categoryImageView.loadImage(category.imagePath.substring(39))
             root.applyClickShrink()
 
             root.setOnClickListener {

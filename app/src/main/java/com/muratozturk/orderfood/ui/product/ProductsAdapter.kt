@@ -6,9 +6,10 @@ import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import com.muratozturk.orderfood.R
 import com.muratozturk.orderfood.common.applyClickShrink
+import com.muratozturk.orderfood.common.loadImage
+import com.muratozturk.orderfood.common.formatPrice
 import com.muratozturk.orderfood.databinding.ProductCardBinding
 import com.muratozturk.orderfood.data.models.Product
-import com.squareup.picasso.Picasso
 
 class ProductsAdapter(private var productList: ArrayList<Product>) :
     RecyclerView.Adapter<ProductsAdapter.ProductsViewHolder>() {
@@ -32,11 +33,8 @@ class ProductsAdapter(private var productList: ArrayList<Product>) :
 
         holder.productCardBinding.apply {
             productText.text = product.name
-            productPrice.text = String.format("%.2f", product.price) + " ₺"
-            Picasso.get()
-                .load("https://liwapos.com/samba.mobil/Content/" + product.imagePath?.substring(39))
-                .error(R.drawable.error)
-                .placeholder(R.drawable.loading).into(productImageView)
+            productPrice.text = product.price?.formatPrice()
+            productImageView.loadImage(product.imagePath?.substring(39).toString())
             root.applyClickShrink()
 
             root.setOnClickListener { onClick(product) }

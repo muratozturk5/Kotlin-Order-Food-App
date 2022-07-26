@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.muratozturk.orderfood.R
+import com.muratozturk.orderfood.common.gone
+import com.muratozturk.orderfood.common.visible
 import com.muratozturk.orderfood.databinding.FragmentCategoriesBinding
 import com.muratozturk.orderfood.data.models.Categories
 import com.muratozturk.orderfood.data.repo.Repository
@@ -54,27 +56,27 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
                         Repository.LOADING.LOADING -> {
                             shimmerLayout.apply {
                                 startShimmer()
-                                visibility = View.VISIBLE
+                                visible()
                             }
-                            categoriesRecyclerView.visibility = View.GONE
-                            errorLayout.visibility = View.GONE
+                            categoriesRecyclerView.gone()
+                            errorLayout.gone()
                         }
                         Repository.LOADING.DONE -> {
                             shimmerLayout.apply {
                                 stopShimmer()
-                                visibility = View.GONE
+                                gone()
                             }
-                            categoriesRecyclerView.visibility = View.VISIBLE
-                            errorLayout.visibility = View.GONE
+                            categoriesRecyclerView.visible()
+                            errorLayout.gone()
                         }
 
                         Repository.LOADING.ERROR -> {
                             shimmerLayout.apply {
                                 stopShimmer()
-                                visibility = View.GONE
+                                gone()
                             }
-                            categoriesRecyclerView.visibility = View.GONE
-                            errorLayout.visibility = View.VISIBLE
+                            categoriesRecyclerView.gone()
+                            errorLayout.visible()
 
                         }
                     }

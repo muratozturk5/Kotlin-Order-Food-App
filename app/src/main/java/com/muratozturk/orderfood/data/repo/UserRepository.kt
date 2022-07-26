@@ -13,12 +13,9 @@ class UserRepository {
     enum class LOADING {
         LOADING, DONE, ERROR
     }
-
-
+    
     var isSignIn = MutableLiveData<Boolean>()
-
     var isSignUp = MutableLiveData<Boolean>()
-
     var userInfo = MutableLiveData<UserModel>()
     var isLoading = MutableLiveData<LOADING>()
 

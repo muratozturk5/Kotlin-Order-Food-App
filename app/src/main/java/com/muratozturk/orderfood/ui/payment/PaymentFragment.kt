@@ -17,6 +17,9 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.muratozturk.orderfood.R
+import com.muratozturk.orderfood.common.getPaymentImages
+import com.muratozturk.orderfood.common.getPaymentNames
+import com.muratozturk.orderfood.common.formatPrice
 import com.muratozturk.orderfood.databinding.FragmentPaymentBinding
 
 
@@ -48,9 +51,9 @@ class PaymentFragment : BottomSheetDialogFragment() {
             val bottomSheetDialog = it as BottomSheetDialog
             val parentLayout =
                 bottomSheetDialog.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
-            parentLayout?.let { it ->
-                val behaviour = BottomSheetBehavior.from(it)
-                setupFullHeight(it)
+            parentLayout?.let { layout ->
+                val behaviour = BottomSheetBehavior.from(layout)
+                setupFullHeight(layout)
                 behaviour.state = BottomSheetBehavior.STATE_EXPANDED
                 behaviour.skipCollapsed = true
             }
@@ -81,16 +84,14 @@ class PaymentFragment : BottomSheetDialogFragment() {
             cancel.setOnClickListener { findNavController().popBackStack() }
 
 
-            val names = arrayListOf("Nakit", "Kapıda Kredi Kartı")
-            val images = arrayListOf(R.drawable.ic_cash, R.drawable.ic_bank_cards)
-
-            val customAdapter = SpinnerAdapter(requireContext(), images, names)
+            val customAdapter =
+                SpinnerAdapter(requireContext(), getPaymentImages(), getPaymentNames())
             paymentTypes.adapter = customAdapter
 
-            orderAmountPrice.text = String.format("%.2f", args.totalPrice) + " ₺"
-            discountAmount.text = String.format("%.2f", (args.totalPrice * 0.20)) + " ₺"
+            orderAmountPrice.text = args.totalPrice.formatPrice()
+            discountAmount.text = (args.totalPrice * 0.20).formatPrice()
             orderPaymentTotalPrice.text =
-                String.format("%.2f", (args.totalPrice) - (args.totalPrice * 0.20)) + " ₺"
+                ((args.totalPrice) - (args.totalPrice * 0.20)).formatPrice()
         }
     }
 

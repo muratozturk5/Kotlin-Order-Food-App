@@ -10,6 +10,9 @@ import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.muratozturk.orderfood.R
+import com.muratozturk.orderfood.common.gone
+import com.muratozturk.orderfood.common.formatPrice
+import com.muratozturk.orderfood.common.visible
 import com.muratozturk.orderfood.data.models.ProductsBasketRoomModel
 import com.muratozturk.orderfood.data.repo.Repository
 import com.muratozturk.orderfood.databinding.FragmentBasketBinding
@@ -66,18 +69,18 @@ class BasketFragment : Fragment(R.layout.fragment_basket) {
                         Repository.LOADING.DONE -> {
                             shimmerLayout.apply {
 
-                                visibility = View.GONE
+                                gone()
                                 stopShimmer()
                             }
-                            basketRecyclerView.visibility = View.VISIBLE
+                            basketRecyclerView.visible()
                         }
 
                         Repository.LOADING.ERROR -> {
                             shimmerLayout.apply {
                                 stopShimmer()
-                                visibility = View.GONE
+                                gone()
                             }
-                            basketRecyclerView.visibility = View.VISIBLE
+                            basketRecyclerView.visible()
                         }
                     }
 
@@ -86,14 +89,14 @@ class BasketFragment : Fragment(R.layout.fragment_basket) {
                 basketTotalAmount.observe(viewLifecycleOwner) { basketTotalAmount ->
                     if (basketTotalAmount > 0.00) {
                         totalAmount.text =
-                            String.format("%.2f", basketTotalAmount) + " ₺"
-                        approveLayout.visibility = View.VISIBLE
-                        basketRecyclerView.visibility = View.VISIBLE
-                        emptyLayout.visibility = View.GONE
+                            basketTotalAmount.formatPrice()
+                        approveLayout.visible()
+                        basketRecyclerView.visible()
+                        emptyLayout.gone()
                     } else {
-                        approveLayout.visibility = View.GONE
-                        basketRecyclerView.visibility = View.GONE
-                        emptyLayout.visibility = View.VISIBLE
+                        approveLayout.gone()
+                        basketRecyclerView.gone()
+                        emptyLayout.visible()
                     }
 
                     basketAmount = basketTotalAmount
@@ -108,9 +111,9 @@ class BasketFragment : Fragment(R.layout.fragment_basket) {
 
 
                     if (basketList.isNotEmpty()) {
-                        approveLayout.visibility = View.VISIBLE
+                        approveLayout.visible()
                     } else {
-                        approveLayout.visibility = View.GONE
+                        approveLayout.gone()
                     }
 
                 }

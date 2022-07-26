@@ -16,6 +16,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.muratozturk.orderfood.R
+import com.muratozturk.orderfood.common.gone
+import com.muratozturk.orderfood.common.visible
 import com.muratozturk.orderfood.databinding.FragmentProductsBinding
 import com.muratozturk.orderfood.data.models.Product
 import com.muratozturk.orderfood.data.repo.Repository
@@ -86,27 +88,27 @@ class ProductsFragment : Fragment(R.layout.fragment_products) {
                         Repository.LOADING.LOADING -> {
                             shimmerLayout.apply {
                                 startShimmer()
-                                visibility = View.VISIBLE
+                                visible()
                             }
-                            productsRecyclerView.visibility = View.GONE
-                            errorLayout.visibility = View.GONE
+                            productsRecyclerView.gone()
+                            errorLayout.gone()
                         }
                         Repository.LOADING.DONE -> {
                             shimmerLayout.apply {
                                 stopShimmer()
-                                visibility = View.GONE
+                                gone()
                             }
-                            productsRecyclerView.visibility = View.VISIBLE
-                            errorLayout.visibility = View.GONE
+                            productsRecyclerView.visible()
+                            errorLayout.gone()
                         }
 
                         Repository.LOADING.ERROR -> {
                             shimmerLayout.apply {
                                 stopShimmer()
-                                visibility = View.GONE
+                                gone()
                             }
-                            productsRecyclerView.visibility = View.GONE
-                            errorLayout.visibility = View.VISIBLE
+                            productsRecyclerView.gone()
+                            errorLayout.visible()
 
                         }
                     }

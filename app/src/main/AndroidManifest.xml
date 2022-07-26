@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KotlinMVVMProject">
         <activity
-            android:name=".ui.login.LoginActivity"
+            android:name=".ui.SplashActivity"
+            android:theme="@style/SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,10 +22,11 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".ui.login.LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="false" />
     </application>
 
 </manifest>
