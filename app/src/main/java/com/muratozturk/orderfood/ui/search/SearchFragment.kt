@@ -35,7 +35,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
             resources.getString(R.string.search_product)
         (activity as AppCompatActivity?)!!.supportActionBar!!.setDisplayHomeAsUpEnabled(false)
 
-        val tryAgain: Button = requireActivity().findViewById<View>(R.id.tryAgain) as Button
+        val tryAgain: Button = requireView().findViewById<View>(R.id.tryAgain) as Button
 
 
         binding.apply {

@@ -27,7 +27,7 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val tryAgain: Button = requireActivity().findViewById<View>(R.id.tryAgain) as Button
+        val tryAgain: Button = requireView().findViewById<View>(R.id.tryAgain) as Button
 
         (activity as AppCompatActivity?)!!.supportActionBar!!.title =
             resources.getString(R.string.categories)

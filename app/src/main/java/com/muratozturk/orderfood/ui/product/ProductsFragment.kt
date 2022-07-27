@@ -36,7 +36,7 @@ class ProductsFragment : Fragment(R.layout.fragment_products) {
         super.onViewCreated(view, savedInstanceState)
         val category = args.category
 
-        val tryAgain: Button = requireActivity().findViewById<View>(R.id.tryAgain) as Button
+        val tryAgain: Button = requireView().findViewById<View>(R.id.tryAgain) as Button
 
 
         (activity as AppCompatActivity?)!!.supportActionBar!!.title = category.name
