@@ -308,7 +308,7 @@
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginTop="5dp"
                                 android:layout_marginBottom="5dp"
-                                android:text="@string/paymeny_summary"
+                                android:text="@string/payment_summary"
                                 android:textColor="@color/primary"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />

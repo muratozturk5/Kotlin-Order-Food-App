@@ -80,7 +80,7 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
                     if (it.not()) MotionToast.createColorToast(
                         requireActivity(),
                         getString(R.string.error),
-                        getString(R.string.complate_not_entered_info),
+                        getString(R.string.complete_not_entered_info),
                         MotionToastStyle.ERROR,
                         MotionToast.GRAVITY_TOP or MotionToast.GRAVITY_CENTER,
                         MotionToast.LONG_DURATION,

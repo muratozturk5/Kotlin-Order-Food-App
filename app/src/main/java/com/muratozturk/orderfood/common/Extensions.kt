@@ -2,6 +2,7 @@ package com.muratozturk.orderfood.common
 
 
 import android.app.Activity
+import android.content.Context
 import android.view.Gravity
 import android.view.View
 import android.widget.ImageView
@@ -31,8 +32,8 @@ fun getPaymentImages(): ArrayList<Int> {
     return arrayListOf(R.drawable.ic_cash, R.drawable.ic_bank_cards)
 }
 
-fun getPaymentNames(): ArrayList<String> {
-    return arrayListOf("Nakit", "Kapıda Kredi Kartı")
+fun Context.getPaymentNames(): ArrayList<String> {
+    return arrayListOf(this.getString(R.string.cash), this.getString(R.string.credit_card))
 }
 
 fun View.visible() {

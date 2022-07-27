@@ -104,7 +104,7 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
                         MotionToast.createColorToast(
                             requireActivity(),
                             getString(R.string.error),
-                            getString(R.string.complate_not_entered_info),
+                            getString(R.string.complete_not_entered_info),
                             MotionToastStyle.ERROR,
                             MotionToast.GRAVITY_TOP or MotionToast.GRAVITY_CENTER,
                             MotionToast.LONG_DURATION,

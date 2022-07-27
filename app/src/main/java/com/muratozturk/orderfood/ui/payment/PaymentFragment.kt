@@ -85,7 +85,11 @@ class PaymentFragment : BottomSheetDialogFragment() {
 
 
             val customAdapter =
-                SpinnerAdapter(requireContext(), getPaymentImages(), getPaymentNames())
+                SpinnerAdapter(
+                    requireContext(),
+                    getPaymentImages(),
+                    requireContext().getPaymentNames()
+                )
             paymentTypes.adapter = customAdapter
 
             orderAmountPrice.text = args.totalPrice.formatPrice()
