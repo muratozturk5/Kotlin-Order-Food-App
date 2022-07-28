@@ -20,6 +20,7 @@ Using Tools And Components Supported By Google And By Most Of The Android Develo
 - [Room Database With Coroutines](https://developer.android.com/training/data-storage/room)
 - [Coroutines](https://developer.android.com/kotlin/coroutines)
 - [Navigation Component](https://developer.android.com/guide/navigation/navigation-getting-started)
+- [Bottom Sheet Dialog Fragment](https://developer.android.com/reference/com/google/android/material/bottomsheet/BottomSheetDialogFragment)
 - [Smooth Bottom Bar](https://github.com/ibrahimsn98/SmoothBottomBar)
 - [ViewPager2](https://developer.android.com/jetpack/androidx/releases/viewpager2)
 - [Animated TabLayout](https://github.com/Droppers/AnimatedBottomBar)
