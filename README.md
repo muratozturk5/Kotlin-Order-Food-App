@@ -6,10 +6,10 @@
 <img src="https://github.com/muratozturk5/Kotlin-MVVM-Example/blob/master/Screenshots/logo.png" align="left"
 width="200" hspace="10" vspace="10">
    
-</br>Order Food Application Build With Kotlin MVVM (Model - View - ViewModel) </br>Clean Architecture, MSSQL API, Beautiful Design UI, Smooth Animations </br>
+Order Food Application Build With Kotlin MVVM (Model - View - ViewModel) </br>Clean Architecture, MSSQL API, Beautiful Design UI, Smooth Animations </br>
 Using Tools And Components Supported By Google And By Most Of The Android Development Community</br></br>***Try latest Order Food App apk from below 👇***
 
-[![Order Food](https://img.shields.io/badge/Order%20Food%F0%9F%8D%94-APK-brightgreen?style=for-the-badge&logo=android)](https://github.com/Spikeysanju/JetQuotes/releases/download/v1.3.1/jetquotes.apk)</br></br>
+[![Order Food](https://img.shields.io/badge/Order%20Food%F0%9F%8D%94-APK-brightgreen?style=for-the-badge&logo=android)](https://github.com/muratozturk5/Kotlin-MVVM-Example/raw/master/APK/order-food.apk)</br></br>
 
 ## Built With 🛠
 
@@ -41,13 +41,13 @@ Using Tools And Components Supported By Google And By Most Of The Android Develo
 
 </br>
 
- Search | Payment Screen | Profile | Sign In 
+ Search | Payment | Profile | Sign In 
 --- | --- | --- | --- |
 ![](https://github.com/muratozturk5/Kotlin-MVVM-Example/blob/master/Screenshots/search.png) | ![](https://github.com/muratozturk5/Kotlin-MVVM-Example/blob/master/Screenshots/payment_screen.png) | ![](https://github.com/muratozturk5/Kotlin-MVVM-Example/blob/master/Screenshots/profile.png) | ![](https://github.com/muratozturk5/Kotlin-MVVM-Example/blob/master/Screenshots/sign_in.png)
 
 </br>
 
- Sign Up | Payment Screen (Scrolled) | Empty Basket | Error Page
+ Sign Up | Payment (Scrolled) | Empty Basket | Error Page
 --- | --- | --- | --- |
 ![](https://github.com/muratozturk5/Kotlin-MVVM-Example/blob/master/Screenshots/sign_up.png) | ![](https://github.com/muratozturk5/Kotlin-MVVM-Example/blob/master/Screenshots/payment_screen_scrolled.png) | ![](https://github.com/muratozturk5/Kotlin-MVVM-Example/blob/master/Screenshots/empty_basket.png) | ![](https://github.com/muratozturk5/Kotlin-MVVM-Example/blob/master/Screenshots/error.png)
 
