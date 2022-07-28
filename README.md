@@ -79,5 +79,5 @@ Using Tools And Components Supported By Google And By Most Of The Android Develo
 
 **Murat ÖZTÜRK**
 
-[![Linkedin](https://img.shields.io/badge/-linkedin-grey?logo=linkedin)]([https://www.linkedin.com/in/murat318ozturk/](https://www.linkedin.com/in/murat-%C3%B6zt%C3%BCrk-7a9306217/))
+[![Linkedin](https://img.shields.io/badge/-linkedin-grey?logo=linkedin)](https://www.linkedin.com/in/murat-%C3%B6zt%C3%BCrk-7a9306217/)
 
