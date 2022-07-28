@@ -1,4 +1,4 @@
-![App Screenshot](https://user-images.githubusercontent.com/62841905/181247032-8dd10feb-3a4f-4b96-bf80-b636e22d34d9.png)
+![App Screenshot](https://github.com/muratozturk5/Kotlin-MVVM-Example/blob/master/Screenshots/banner.png)
 
 
 # Order Food
@@ -6,7 +6,7 @@
 Order Food Application Build With Kotlin MVVM (Model - View - ViewModel)
 
 
-## Features
+## Built With 🛠
 
 - [MVVM (Model - View - ViewModel)](https://developer.android.com/topic/architecture)
 - [Live Data](https://developer.android.com/topic/libraries/architecture/livedata)
@@ -30,6 +30,24 @@ Order Food Application Build With Kotlin MVVM (Model - View - ViewModel)
 
 ## Screenshoots
 
-Categories | Categories | Categories
+Categories | Products | Product Detail
 --- | --- | --- |
-![](https://github.com/muratozturk5/Kotlin-MVVM-Example/blob/master/Screenshots/categories.png) | ![](https://github.com/muratozturk5/Kotlin-MVVM-Example/blob/master/Screenshots/categories.png) | ![](https://github.com/muratozturk5/Kotlin-MVVM-Example/blob/master/Screenshots/categories.png)
+![](https://github.com/muratozturk5/Kotlin-MVVM-Example/blob/master/Screenshots/categories.png) | ![](https://github.com/muratozturk5/Kotlin-MVVM-Example/blob/master/Screenshots/products.png) | ![](https://github.com/muratozturk5/Kotlin-MVVM-Example/blob/master/Screenshots/product_detail.png)
+
+</br>
+
+Basket | Search | Payment Screen
+--- | --- | --- |
+![](https://github.com/muratozturk5/Kotlin-MVVM-Example/blob/master/Screenshots/basket.png) | ![](https://github.com/muratozturk5/Kotlin-MVVM-Example/blob/master/Screenshots/search.png) | ![](https://github.com/muratozturk5/Kotlin-MVVM-Example/blob/master/Screenshots/payment_screen.png)
+
+</br>
+
+Profile | Sign In | Sign Up
+--- | --- | --- |
+![](https://github.com/muratozturk5/Kotlin-MVVM-Example/blob/master/Screenshots/profile.png) | ![](https://github.com/muratozturk5/Kotlin-MVVM-Example/blob/master/Screenshots/sign_in.png) | ![](https://github.com/muratozturk5/Kotlin-MVVM-Example/blob/master/Screenshots/sign_up.png)
+
+</br>
+
+Payment Screen (Scrolled) | Empty Basket | Error Page
+--- | --- | --- |
+![](https://github.com/muratozturk5/Kotlin-MVVM-Example/blob/master/Screenshots/payment_screen_scrolled.png) | ![](https://github.com/muratozturk5/Kotlin-MVVM-Example/blob/master/Screenshots/empty_basket.png) | ![](https://github.com/muratozturk5/Kotlin-MVVM-Example/blob/master/Screenshots/error.png)
