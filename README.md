@@ -1,7 +1,7 @@
 ![App Screenshot](https://github.com/muratozturk5/Kotlin-MVVM-Example/blob/master/Screenshots/banner.png)
 
 
-# Order Food 🍔
+# 🍔 Order Food
 
 <img src="https://github.com/muratozturk5/Kotlin-MVVM-Example/blob/master/Screenshots/logo.png" align="left"
 width="200" hspace="10" vspace="10">
@@ -11,7 +11,7 @@ Using Tools And Components Supported By Google And By Most Of The Android Develo
 
 [![Order Food](https://img.shields.io/badge/Order%20Food%F0%9F%8D%94-APK-brightgreen?style=for-the-badge&logo=android)](https://github.com/muratozturk5/Kotlin-MVVM-Example/raw/master/APK/order-food.apk)</br></br>
 
-## Built With 🛠
+## 🛠 Built With
 
 - [MVVM (Model - View - ViewModel)](https://developer.android.com/topic/architecture)
 - [Live Data](https://developer.android.com/topic/libraries/architecture/livedata)
@@ -34,7 +34,7 @@ Using Tools And Components Supported By Google And By Most Of The Android Develo
 - [Motion Toast](https://github.com/Spikeysanju/MotionToast)
 - [Loading Button](https://github.com/leandroBorgesFerreira/LoadingButtonAndroid)
 
-## Screenshoots 📷
+## 📷 Screenshoots
 
  Categories | Products | Product Detail | Basket 
 ---- | ---- | ---- | ---- |
@@ -55,7 +55,7 @@ Using Tools And Components Supported By Google And By Most Of The Android Develo
 </br>
 
 
-## Color Reference 🎨
+## 🎨 Color Reference
 
 | Color             | Hex                                                                |
 | ----------------- | ------------------------------------------------------------------ |
@@ -73,7 +73,7 @@ Using Tools And Components Supported By Google And By Most Of The Android Develo
 | ![#4CAF50](https://via.placeholder.com/15/4CAF50/4CAF50.png) |  `#4CAF50` |
 
 
-## Developed By 👨
+## 👨 Developed By 
 
  <img src="https://avatars.githubusercontent.com/u/62841905?s=400&u=6b1f97cf6a3dfe668719000f9686f5fe861f273a&v=4" width="70" align="left">
 
@@ -82,7 +82,7 @@ Using Tools And Components Supported By Google And By Most Of The Android Develo
 
 [![Linkedin](https://img.shields.io/badge/-linkedin-grey?logo=linkedin)](https://www.linkedin.com/in/murat-%C3%B6zt%C3%BCrk-7a9306217/)
 
-License 📜
+📄 License 
 -------
 
 ```
