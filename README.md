@@ -1,11 +1,15 @@
 ![App Screenshot](https://github.com/muratozturk5/Kotlin-MVVM-Example/blob/master/Screenshots/banner.png)
 
 
-# Order Food
+# Order Food 🍔
 
-Order Food Application Build With Kotlin MVVM (Model - View - ViewModel)  Clean Architecture, MSSQL API, Beautiful Design UI, Smooth Animations
-Using Tools And Components Supported By Google And By Most Of The Android Development Community
+<img src="https://github.com/muratozturk5/Kotlin-MVVM-Example/blob/master/Screenshots/logo.png" align="left"
+width="200" hspace="10" vspace="10">
+   
+</br>Order Food Application Build With Kotlin MVVM (Model - View - ViewModel) </br>Clean Architecture, MSSQL API, Beautiful Design UI, Smooth Animations </br>
+Using Tools And Components Supported By Google And By Most Of The Android Development Community</br></br>***Try latest Order Food App apk from below 👇***
 
+[![Order Food](https://img.shields.io/badge/Order%20Food%F0%9F%8D%94-APK-brightgreen?style=for-the-badge&logo=android)](https://github.com/Spikeysanju/JetQuotes/releases/download/v1.3.1/jetquotes.apk)</br></br>
 
 ## Built With 🛠
 
@@ -68,5 +72,12 @@ Using Tools And Components Supported By Google And By Most Of The Android Develo
 | ![#4CAF50](https://via.placeholder.com/15/4CAF50/4CAF50.png) |  `#4CAF50` |
 
 
+## Developed By 👨
 
+ <img src="https://avatars.githubusercontent.com/u/62841905?s=400&u=6b1f97cf6a3dfe668719000f9686f5fe861f273a&v=4" width="70" align="left">
+
+
+**Murat ÖZTÜRK**
+
+[![Linkedin](https://img.shields.io/badge/-linkedin-grey?logo=linkedin)]([https://www.linkedin.com/in/murat318ozturk/](https://www.linkedin.com/in/murat-%C3%B6zt%C3%BCrk-7a9306217/))
 
