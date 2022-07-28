@@ -3,7 +3,8 @@
 
 # Order Food
 
-Order Food Application Build With Kotlin MVVM (Model - View - ViewModel)
+Order Food Application Build With Kotlin MVVM (Model - View - ViewModel)  Clean Architecture, MSSQL API, Beautiful Design UI, Smooth Animations
+Using Tools And Components Supported By Google And By Most Of The Android Development Community
 
 
 ## Built With 🛠
@@ -30,8 +31,8 @@ Order Food Application Build With Kotlin MVVM (Model - View - ViewModel)
 
 ## Screenshoots 📷
 
-Categories | Products | Product Detail | Basket
---- | --- | --- | --- |
+ Categories | Products | Product Detail | Basket 
+---- | ---- | ---- | ---- |
 ![](https://github.com/muratozturk5/Kotlin-MVVM-Example/blob/master/Screenshots/categories.png) | ![](https://github.com/muratozturk5/Kotlin-MVVM-Example/blob/master/Screenshots/products.png) | ![](https://github.com/muratozturk5/Kotlin-MVVM-Example/blob/master/Screenshots/product_detail.png) | ![](https://github.com/muratozturk5/Kotlin-MVVM-Example/blob/master/Screenshots/basket.png)
 
 </br>
