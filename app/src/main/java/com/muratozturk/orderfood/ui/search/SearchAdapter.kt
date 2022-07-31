@@ -43,7 +43,7 @@ class SearchAdapter :
         holder.productCardBinding.apply {
             productText.text = product.name
             productPrice.text = product.price?.formatPrice()
-            productImageView.loadImage(product.imagePath?.substring(39).toString())
+            productImageView.loadImage(product.imagePath.toString())
             root.applyClickShrink()
 
             root.setOnClickListener { onClick(product) }

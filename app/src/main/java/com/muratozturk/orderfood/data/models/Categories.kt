@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 data class Categories(
-    @SerializedName("Id") @Expose var id: Int,
-    @SerializedName("Name") @Expose var name: String,
-    @SerializedName("ImagePath") @Expose var imagePath: String
+    @SerializedName("id") @Expose var id: Int,
+    @SerializedName("name") @Expose var name: String,
+    @SerializedName("imagePath") @Expose var imagePath: String
 ):Serializable

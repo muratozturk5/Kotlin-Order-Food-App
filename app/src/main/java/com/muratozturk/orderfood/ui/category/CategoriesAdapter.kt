@@ -30,7 +30,7 @@ class CategoriesAdapter(private var categoriesList: ArrayList<Categories>) :
 
         holder.categoryCardBinding.apply {
             categoryText.text = category.name
-            categoryImageView.loadImage(category.imagePath.substring(39))
+            categoryImageView.loadImage(category.imagePath)
             root.applyClickShrink()
 
             root.setOnClickListener {

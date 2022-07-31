@@ -5,11 +5,9 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 data class Product(
-    @SerializedName("Name") @Expose var name: String?,
-    @SerializedName("ImagePath") @Expose var imagePath: String?,
-    @SerializedName("Price") @Expose var price: Double?,
-    @SerializedName("MenuItemId") @Expose var menuItemId: Int?,
-    @SerializedName("GroupName") @Expose var groupName: String?,
-    @SerializedName("CustomTags") @Expose var customTags: String?,
-    @SerializedName("Expr1") @Expose var portion: String?
+    @SerializedName("id") @Expose var id: Int?,
+    @SerializedName("name") @Expose var name: String?,
+    @SerializedName("imagePath") @Expose var imagePath: String?,
+    @SerializedName("price") @Expose var price: Double?,
+    @SerializedName("portions") @Expose var portion: String?
 ):Serializable

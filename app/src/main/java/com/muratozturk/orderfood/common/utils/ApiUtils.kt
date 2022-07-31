@@ -6,7 +6,7 @@ import com.muratozturk.orderfood.data.retrofit.RetrofitClient
 class ApiUtils {
 
     companion object {
-        private const val BASE_URL = "https://liwapos.com/samba.mobil/Json/"
+        private const val BASE_URL = "https://codingwithlove.com/"
 
 
         fun getInterfaceDAO(): DAOInterface {

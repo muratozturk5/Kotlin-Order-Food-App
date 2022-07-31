@@ -47,7 +47,7 @@ class ProductDetailFragment : BottomSheetDialogFragment() {
         val product = args.product
 
         binding.apply {
-            productImage.loadImage(product.imagePath?.substring(39).toString())
+            productImage.loadImage(product.imagePath.toString())
             totalPrice = product.price
             price = product.price
             productName.text = product.name
@@ -59,7 +59,7 @@ class ProductDetailFragment : BottomSheetDialogFragment() {
             addToBasket.setOnClickListener {
                 viewModel.addBookToBasket(
                     ProductsBasketRoomModel(
-                        productId = product.menuItemId!!,
+                        productId = product.id!!,
                         productName = product.name,
                         productCount = count,
                         productPrice = totalPrice,

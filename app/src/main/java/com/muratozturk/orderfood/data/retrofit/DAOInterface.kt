@@ -6,15 +6,16 @@ import com.muratozturk.orderfood.data.models.Product
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface DAOInterface {
 
-    @GET("JsonCategories")
+    @GET("getCategories")
     suspend fun getCategories(): Response<List<Categories>>
 
-    @GET("JsonItems/{id}")
-    suspend fun getProducts(@Path("id") id: Int): Response<List<Product>>
+    @GET("getCategoryProducts")
+    suspend fun getProducts(@Query("categoryId") categoryId: Int): Response<List<Product>>
 
-    @GET("JsonSearch")
+    @GET("getProducts")
     suspend fun getSearch(): Response<List<Product>>
 }
