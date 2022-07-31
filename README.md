@@ -15,7 +15,7 @@ Using Tools And Components Supported By Google And By Most Of The Android Develo
 
 - [MVVM (Model - View - ViewModel)](https://developer.android.com/topic/architecture)
 - [Live Data](https://developer.android.com/topic/libraries/architecture/livedata)
-- [Retrofit](https://square.github.io/retrofit)
+- [Retrofit2](https://square.github.io/retrofit)
 - [View Binding](https://developer.android.com/topic/libraries/view-binding)
 - [Room Database With Coroutines](https://developer.android.com/training/data-storage/room)
 - [Coroutines](https://developer.android.com/kotlin/coroutines)
