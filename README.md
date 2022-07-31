@@ -11,6 +11,18 @@ Using Tools And Components Supported By Google And By Most Of The Android Develo
 
 [![Order Food](https://img.shields.io/badge/Order%20Food%F0%9F%8D%94-APK-brightgreen?style=for-the-badge&logo=android)](https://github.com/muratozturk5/Kotlin-MVVM-Example/raw/master/APK/order-food.apk)</br></br></br>
 
+## 💻 Used API
+***Live API URL Check from blow 👇***
+</br>
+</br>
+[https://codingwithlove.com](https://codingwithlove.com)
+</br>
+</br>
+***In this app used Asp.Net Core API with Swagger UI Check this project from blow 👇***
+</br>
+</br>
+[![Order Food App API](https://img.shields.io/badge/Order%20Food%20API%20Project-API-brightgreen?style=for-the-badge)](https://github.com/muratozturk5/Order-Food-Asp.Net-Core-API)
+
 ## 🛠 Built With
 
 - [MVVM (Model - View - ViewModel)](https://developer.android.com/topic/architecture)
@@ -33,6 +45,7 @@ Using Tools And Components Supported By Google And By Most Of The Android Develo
 - [Shimmer Effect](https://github.com/facebook/shimmer-android)
 - [Motion Toast](https://github.com/Spikeysanju/MotionToast)
 - [Loading Button](https://github.com/leandroBorgesFerreira/LoadingButtonAndroid)
+- [Multi Language](https://developer.android.com/training/basics/supporting-devices/languages)
 
 ## 📷 Screenshoots
 
