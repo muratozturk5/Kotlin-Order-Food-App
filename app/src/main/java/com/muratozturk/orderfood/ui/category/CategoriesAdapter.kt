@@ -4,10 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
+import com.muratozturk.click_shrink_effect.applyClickShrink
 import com.muratozturk.orderfood.R
 import com.muratozturk.orderfood.databinding.CategoryCardBinding
 import com.muratozturk.orderfood.data.models.Categories
-import com.muratozturk.orderfood.common.applyClickShrink
+
 import com.muratozturk.orderfood.common.loadImage
 import com.squareup.picasso.Picasso
 

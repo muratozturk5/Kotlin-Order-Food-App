@@ -109,4 +109,7 @@ dependencies {
 
     // Animated Svg for Splash
     implementation 'com.jaredrummler:animated-svg-view:1.0.6'
+
+    // Click Shrink Effect
+    implementation 'com.github.muratozturk5:ClickShrinkEffectLibrary:1.2.0'
 }

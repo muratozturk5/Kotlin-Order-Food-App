@@ -4,8 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
+import com.muratozturk.click_shrink_effect.applyClickShrink
 import com.muratozturk.orderfood.R
-import com.muratozturk.orderfood.common.applyClickShrink
+
 import com.muratozturk.orderfood.common.loadImage
 import com.muratozturk.orderfood.common.formatPrice
 import com.muratozturk.orderfood.databinding.ProductCardBinding
