@@ -21,7 +21,7 @@ Using Tools And Components Supported By Google And By Most Of The Android Develo
 ***In this app used Asp.Net Core API with Swagger UI Check this project from blow 👇***
 </br>
 </br>
-[![Order Food App API](https://img.shields.io/badge/Order%20Food%20API%20Project-API-brightgreen?style=for-the-badge)](https://github.com/muratozturk5/Order-Food-Asp.Net-Core-API)
+[![Order Food App API](https://img.shields.io/badge/Order%20Food%20API%20Project-API-blue?style=for-the-badge)](https://github.com/muratozturk5/Order-Food-Asp.Net-Core-API)
 
 ## 🛠 Built With
 
