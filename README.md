@@ -47,7 +47,7 @@ Using Tools And Components Supported By Google And By Most Of The Android Develo
 - [Loading Button](https://github.com/leandroBorgesFerreira/LoadingButtonAndroid)
 - [Multi Language](https://developer.android.com/training/basics/supporting-devices/languages)
 
-## 📷 Screenshoots
+## 📷 Screenshots
 
  Categories | Products | Product Detail | Basket 
 ---- | ---- | ---- | ---- |
