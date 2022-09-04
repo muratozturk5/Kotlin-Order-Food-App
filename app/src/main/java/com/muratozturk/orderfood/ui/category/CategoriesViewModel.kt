@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.muratozturk.orderfood.data.models.Categories
 import com.muratozturk.orderfood.data.repo.Repository
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class CategoriesViewModel(context: Context) : ViewModel() {

@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.muratozturk.orderfood.data.models.Product
 import com.muratozturk.orderfood.data.repo.Repository
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class SearchViewModel(context: Context) : ViewModel() {

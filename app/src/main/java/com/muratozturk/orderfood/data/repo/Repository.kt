@@ -10,6 +10,7 @@ import com.muratozturk.orderfood.data.models.ProductsBasketRoomModel
 import com.muratozturk.orderfood.data.retrofit.DAOInterface
 import com.muratozturk.orderfood.data.room.ProductsBasketDAOInterface
 import com.muratozturk.orderfood.data.room.ProductsBasketRoomDatabase
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 
 class Repository(context: Context) {
@@ -31,6 +32,8 @@ class Repository(context: Context) {
     suspend fun getCategories() {
         try {
             isLoading.value = LOADING.LOADING
+            // Bottom Navigation Bar is lagging if don't add delay
+            delay(500)
             val response = dif.getCategories()
             if (response.isSuccessful) {
                 val tempList = response.body()
@@ -49,6 +52,8 @@ class Repository(context: Context) {
     suspend fun getProducts(categoryId: Int) {
         try {
             isLoading.value = LOADING.LOADING
+            // Bottom Navigation Bar is lagging if don't add delay
+            delay(500)
             val response = dif.getProducts(categoryId)
             if (response.isSuccessful) {
                 val tempList = response.body()
@@ -66,7 +71,10 @@ class Repository(context: Context) {
 
     suspend fun getSearch() {
         try {
+
             isLoading.value = LOADING.LOADING
+            // Bottom Navigation Bar is lagging if don't add delay
+            delay(500)
             val response = dif.getSearch()
             if (response.isSuccessful) {
                 val tempList = response.body()
