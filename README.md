@@ -1,5 +1,5 @@
 ![App Screenshot](https://github.com/muratozturk5/Kotlin-MVVM-Example/blob/master/Screenshots/banner.png)
-![](https://vbr.wocr.tk/badge?page_id=order-food-android&color=55acb7&style=for-the-badge&logo=Github)
+![](https://komarev.com/ghpvc/?username=kotlin-order-food-android&color=55acb7&style=for-the-badge&logo=Github&label=Views)
 
 # 🍔 Order Food
 
